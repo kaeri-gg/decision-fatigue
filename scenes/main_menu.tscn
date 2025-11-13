@@ -10,7 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme = ExtResource("1_l6cm7")
 

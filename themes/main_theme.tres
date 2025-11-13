@@ -6,7 +6,7 @@
 
 [resource]
 default_font = ExtResource("2_ydht1")
-default_font_size = 18
+default_font_size = 30
 Button/styles/normal = ExtResource("1_ydht1")
 PanelContainer/styles/panel = ExtResource("1_vu6l5")
 VBoxContainer/constants/separation = 10
