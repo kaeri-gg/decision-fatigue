@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5okkui18aqe"]
+
+[ext_resource type="Theme" uid="uid://ceyl03hcgc15j" path="res://themes/main_scene.tres" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/game.gd" id="2_pw63i"]
+
+[node name="Main scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w2twt")
+script = ExtResource("2_pw63i")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w2twt")
+
+[node name="ShowBoard" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "Show board"
+
+[node name="RestartGame" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Restart"
+
+[node name="StandingContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StandingContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="GridContainer" parent="StandingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 35
+columns = 2
+
+[node name="Label" type="Label" parent="StandingContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Happiness"
+
+[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+[node name="HBoxContainer2" type="GridContainer" parent="StandingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 60
+columns = 2
+
+[node name="Label" type="Label" parent="StandingContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Money"
+
+[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+[node name="HBoxContainer3" type="GridContainer" parent="StandingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Label" type="Label" parent="StandingContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Respect"
+
+[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+[node name="HBoxContainer4" type="GridContainer" parent="StandingContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="StandingContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Relationship"
+
+[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true

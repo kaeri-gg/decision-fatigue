@@ -1,5 +1,260 @@
-[gd_scene format=3 uid="uid://jvhn5q8jbp3f"]
+[gd_scene load_steps=5 format=3 uid="uid://jvhn5q8jbp3f"]
 
-[node name="Board" type="Node2D"]
+[ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="1_bw3vb"]
+[ext_resource type="Script" uid="uid://cmksol0urbvqw" path="res://scenes/board.gd" id="1_nglv8"]
+[ext_resource type="Texture2D" uid="uid://clntmonkw2adk" path="res://assets/images/dice/dice-01.png" id="2_tx6nw"]
+[ext_resource type="PackedScene" uid="uid://c33tbpsbwm74b" path="res://scenes/player_icon.tscn" id="4_fv4ni"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Board" type="Control"]
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_nglv8")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_bw3vb")
+
+[node name="TilesPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HorizontalTiles" type="MarginContainer" parent="TilesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Top" type="VBoxContainer" parent="TilesPanel/HorizontalTiles"]
+custom_minimum_size = Vector2(100, 90)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="TilesPanel/HorizontalTiles/Top"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Button0" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Start"
+
+[node name="Button1" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+
+[node name="Bottom" type="VBoxContainer" parent="TilesPanel/HorizontalTiles"]
+custom_minimum_size = Vector2(100, 90)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="GridContainer" type="GridContainer" parent="TilesPanel/HorizontalTiles/Bottom"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Button12" type="Button" parent="TilesPanel/HorizontalTiles/Bottom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "12"
+
+[node name="Button11" type="Button" parent="TilesPanel/HorizontalTiles/Bottom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "11"
+
+[node name="Button10" type="Button" parent="TilesPanel/HorizontalTiles/Bottom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "10"
+
+[node name="Button9" type="Button" parent="TilesPanel/HorizontalTiles/Bottom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+
+[node name="Button8" type="Button" parent="TilesPanel/HorizontalTiles/Bottom/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+
+[node name="VerticalTiles" type="MarginContainer" parent="TilesPanel"]
+custom_minimum_size = Vector2(600, 270)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -85.5
+offset_right = 100.0
+offset_bottom = 85.5
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Left" type="HBoxContainer" parent="TilesPanel/VerticalTiles"]
+custom_minimum_size = Vector2(110, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="TilesPanel/VerticalTiles/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button15" type="Button" parent="TilesPanel/VerticalTiles/Left/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "15"
+
+[node name="Button14" type="Button" parent="TilesPanel/VerticalTiles/Left/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "14"
+
+[node name="Button13" type="Button" parent="TilesPanel/VerticalTiles/Left/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "13"
+
+[node name="Right" type="HBoxContainer" parent="TilesPanel/VerticalTiles"]
+custom_minimum_size = Vector2(110, 120)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="GridContainer" type="GridContainer" parent="TilesPanel/VerticalTiles/Right"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button5" type="Button" parent="TilesPanel/VerticalTiles/Right/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="TilesPanel/VerticalTiles/Right/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+
+[node name="Button7" type="Button" parent="TilesPanel/VerticalTiles/Right/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+
+[node name="DiceContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -57.0
+offset_right = 25.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiceContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RollButton" type="Button" parent="DiceContainer/VBoxContainer"]
+layout_mode = 2
+text = "Roll
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="DiceContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="CenterContainer" type="Control" parent="DiceContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Dice" type="TextureRect" parent="DiceContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("2_tx6nw")
+expand_mode = 1
+
+[node name="PlayerIcon" parent="." instance=ExtResource("4_fv4ni")]
+position = Vector2(126, 87)
+
+[connection signal="pressed" from="DiceContainer/VBoxContainer/RollButton" to="." method="_on_roll_pressed"]

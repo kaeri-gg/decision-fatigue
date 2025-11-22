@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ceyl03hcgc15j"]
+
+[ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/fonts/DarumadropOne-Regular.ttf" id="1_uj8ov"]
+
+[sub_resource type="Gradient" id="Gradient_xg3tc"]
+colors = PackedColorArray(0.65668994, 0.63660604, 0.9764009, 1, 0.9935791, 0.68799305, 0.47838473, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vm2qu"]
+gradient = SubResource("Gradient_xg3tc")
+fill_from = Vector2(0.54273504, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_djnak"]
+texture = SubResource("GradientTexture2D_vm2qu")
+
+[resource]
+default_font = ExtResource("1_uj8ov")
+Panel/styles/panel = SubResource("StyleBoxTexture_djnak")

@@ -1,12 +1,24 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bylq6dkpla5iv"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bylq6dkpla5iv"]
 
-[ext_resource type="StyleBox" uid="uid://uvtphp454ybb" path="res://themes/panel_container_theme.tres" id="1_vu6l5"]
 [ext_resource type="StyleBox" uid="uid://vgkrtmcucalx" path="res://themes/button_primary.tres" id="1_ydht1"]
-[ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/DarumadropOne-Regular.ttf" id="2_ydht1"]
+[ext_resource type="StyleBox" uid="uid://uvtphp454ybb" path="res://themes/menu_container_theme.tres" id="2_8gw6x"]
+[ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/fonts/DarumadropOne-Regular.ttf" id="3_ydht1"]
+
+[sub_resource type="Gradient" id="Gradient_ydht1"]
+colors = PackedColorArray(0.67615527, 0.67971283, 0.93468744, 1, 0.9701204, 0.8178643, 0.8750177, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gw6x"]
+gradient = SubResource("Gradient_ydht1")
+fill_from = Vector2(0.53846157, 1)
+fill_to = Vector2(0.525641, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g21io"]
+texture = SubResource("GradientTexture2D_8gw6x")
 
 [resource]
-default_font = ExtResource("2_ydht1")
+default_font = ExtResource("3_ydht1")
 default_font_size = 30
 Button/styles/normal = ExtResource("1_ydht1")
-PanelContainer/styles/panel = ExtResource("1_vu6l5")
+Panel/styles/panel = SubResource("StyleBoxTexture_g21io")
+PanelContainer/styles/panel = ExtResource("2_8gw6x")
 VBoxContainer/constants/separation = 10

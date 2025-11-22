@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dybi4nv0uhat8"
-path="res://.godot/imported/DarumadropOne-Regular.ttf-9c50f74f15941fd73c4c8103592cc460.fontdata"
+path="res://.godot/imported/DarumadropOne-Regular.ttf-c024ba0c161e66ee019c852c1b5a6435.fontdata"
 
 [deps]
 
-source_file="res://assets/DarumadropOne-Regular.ttf"
-dest_files=["res://.godot/imported/DarumadropOne-Regular.ttf-9c50f74f15941fd73c4c8103592cc460.fontdata"]
+source_file="res://assets/fonts/DarumadropOne-Regular.ttf"
+dest_files=["res://.godot/imported/DarumadropOne-Regular.ttf-c024ba0c161e66ee019c852c1b5a6435.fontdata"]
 
 [params]
 
