@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://jvhn5q8jbp3f"]
+[gd_scene load_steps=9 format=3 uid="uid://jvhn5q8jbp3f"]
 
 [ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="1_bw3vb"]
 [ext_resource type="Script" uid="uid://cmksol0urbvqw" path="res://script/board.gd" id="1_dxjtj"]
 [ext_resource type="Texture2D" uid="uid://clntmonkw2adk" path="res://assets/images/dice/dice-01.png" id="2_tx6nw"]
+[ext_resource type="Script" uid="uid://domonc7d7lqva" path="res://script/tiles.gd" id="3_dun80"]
 [ext_resource type="Script" uid="uid://b55tg5c63fxru" path="res://script/dice.gd" id="3_dxjtj"]
 [ext_resource type="PackedScene" uid="uid://c33tbpsbwm74b" path="res://scenes/player_icon.tscn" id="4_fv4ni"]
+[ext_resource type="Script" uid="uid://ck74v3kv003b" path="res://script/utils.gd" id="7_c3r7o"]
+[ext_resource type="Script" uid="uid://cooj4kxxunmcg" path="res://script/player.gd" id="8_wmvsh"]
 
 [node name="Board" type="Control"]
 custom_minimum_size = Vector2(700, 500)
@@ -49,6 +52,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("3_dun80")
 
 [node name="HorizontalTiles" type="MarginContainer" parent="TilesPanel"]
 layout_mode = 1
@@ -258,5 +262,13 @@ expand_mode = 1
 
 [node name="PlayerIcon" parent="." instance=ExtResource("4_fv4ni")]
 position = Vector2(126, 87)
+
+[node name="Utils" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_c3r7o")
+
+[node name="Player" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_wmvsh")
 
 [connection signal="pressed" from="DiceContainer/VBoxContainer/RollButton" to="." method="_on_roll_pressed"]
