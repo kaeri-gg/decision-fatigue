@@ -4,6 +4,7 @@ extends Control
 @onready var dice_container: Control = $DiceContainer/VBoxContainer/CenterContainer
 @onready var dice_material: TextureRect = $DiceContainer/VBoxContainer/CenterContainer/Dice
 @onready var roll_button: Button = $DiceContainer/VBoxContainer/RollButton
+@onready var player_icon: CharacterBody2D = $PlayerIcon
 
 # Tiles
 @onready var button_0: Button = $TilesPanel/HorizontalTiles/Top/GridContainer/Button0
