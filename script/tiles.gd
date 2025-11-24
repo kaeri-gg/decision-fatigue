@@ -56,6 +56,9 @@ func unhighlight_by(idx: int) -> void:
 	tile.set_theme(NORMAL)
 
 func animate_by(idx: int) -> void:
+	# Apply highlighted style
+	highlight_by(idx)
+
 	# Keep remainder only from index
 	var tile = get_normalized_by(idx)
 	
@@ -81,6 +84,8 @@ func animate_by(idx: int) -> void:
 	scale_tween.tween_property(tile, "scale", scale_end, speed)
 	
 	await utils.timeout(speed * 2)
+	# Reset style
+	unhighlight_by(idx)
 
 func get_normalized_by(idx: int) -> Button:
 	# Keep remainder only from index
