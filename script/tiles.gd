@@ -1,6 +1,9 @@
 class_name Tiles
 extends Panel
 
+const HIGHLIGHTED = preload("res://themes/highlighted.tres")
+const NORMAL = preload("res://themes/normal.tres")
+
 @onready var button_0: Button = $HorizontalTiles/Top/GridContainer/Button0
 @onready var button_1: Button = $HorizontalTiles/Top/GridContainer/Button1
 @onready var button_2: Button = $HorizontalTiles/Top/GridContainer/Button2
@@ -45,8 +48,12 @@ func _ready() -> void:
 	_tiles_count = _idx_to_btns.values().size()
 
 func highlight_by(idx: int) -> void:
-	pass
-	
+	var tile = get_normalized_by(idx)
+	tile.set_theme(HIGHLIGHTED)
+
+func unhighlight_by(idx: int) -> void:
+	var tile = get_normalized_by(idx)
+	tile.set_theme(NORMAL)
 
 func animate_by(idx: int) -> void:
 	# Keep remainder only from index

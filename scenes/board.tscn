@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jvhn5q8jbp3f"]
+[gd_scene load_steps=12 format=3 uid="uid://jvhn5q8jbp3f"]
 
 [ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="1_bw3vb"]
 [ext_resource type="Script" uid="uid://cmksol0urbvqw" path="res://script/board.gd" id="1_dxjtj"]
@@ -6,8 +6,13 @@
 [ext_resource type="Script" uid="uid://domonc7d7lqva" path="res://script/tiles.gd" id="3_dun80"]
 [ext_resource type="Script" uid="uid://b55tg5c63fxru" path="res://script/dice.gd" id="3_dxjtj"]
 [ext_resource type="PackedScene" uid="uid://c33tbpsbwm74b" path="res://scenes/player_icon.tscn" id="4_fv4ni"]
+[ext_resource type="Theme" uid="uid://qfd41g231vd5" path="res://themes/normal.tres" id="4_n230i"]
 [ext_resource type="Script" uid="uid://ck74v3kv003b" path="res://script/utils.gd" id="7_c3r7o"]
 [ext_resource type="Script" uid="uid://cooj4kxxunmcg" path="res://script/player.gd" id="8_wmvsh"]
+
+[sub_resource type="Theme" id="Theme_wmvsh"]
+
+[sub_resource type="Theme" id="Theme_n230i"]
 
 [node name="Board" type="Control"]
 custom_minimum_size = Vector2(700, 500)
@@ -81,18 +86,23 @@ columns = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_wmvsh")
+theme_type_variation = &"Default"
 text = "Start"
 
 [node name="Button1" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("4_n230i")
+theme_type_variation = &"Normal"
 text = "1"
 
 [node name="Button2" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_n230i")
 text = "2"
 
 [node name="Button3" type="Button" parent="TilesPanel/HorizontalTiles/Top/GridContainer"]

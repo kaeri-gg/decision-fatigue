@@ -32,9 +32,12 @@ func handle_dice_roll() -> void:
 	
 
 func animate_in_sequense(from, to) -> void:
+	tiles.unhighlight_by(from)
+
 	# Function range(from, to); 
 	# 'from' is inclusive but we do not need to animate it; we add 1
 	# 'to' is not inclusive; we add 1
 	for idx in range(from + 1, to + 1):
 		await tiles.animate_by(idx)
 	
+	tiles.highlight_by(to)
