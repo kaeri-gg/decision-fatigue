@@ -9,7 +9,7 @@ extends PanelContainer
 # This way we mimic @Readonly feature for variable
 
 # Manually aligned origin point
-const ORIGIN = Vector2(-25, 0)
+const ORIGIN = Vector2(0, 0)
 
 var value: int:
 	## @Readonly

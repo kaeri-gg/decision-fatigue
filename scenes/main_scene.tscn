@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=6 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://ceyl03hcgc15j" path="res://themes/main_scene.tres" id="1_w2twt"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/game.gd" id="2_pw63i"]
 [ext_resource type="Theme" uid="uid://d0qi1umlogmpc" path="res://themes/plain_panel.tres" id="3_7ykc4"]
+[ext_resource type="Script" uid="uid://clikygoon7ctp" path="res://script/dialog.gd" id="4_pu3yx"]
 
 [sub_resource type="Theme" id="Theme_pu3yx"]
 
@@ -125,7 +126,7 @@ text = "+ 10"
 layout_mode = 2
 text = "+ 10"
 
-[node name="DialogContainer" type="PanelContainer" parent="."]
+[node name="Dialog" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -133,48 +134,49 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_pu3yx")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialog"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="DialogContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="GridContainer" parent="DialogContainer/MarginContainer/GridContainer"]
+[node name="VBoxContainer" type="GridContainer" parent="Dialog/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 columns = 2
 
-[node name="Button" type="Button" parent="DialogContainer/MarginContainer/GridContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Dialog/MarginContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 text = "Yes"
 
-[node name="Button2" type="Button" parent="DialogContainer/MarginContainer/GridContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="Dialog/MarginContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 text = "No"
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogContainer/MarginContainer/GridContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DialogContainer/MarginContainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DialogContainer/MarginContainer/GridContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Dialog/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 text = "He didn't pay you
 back before!"
 
-[node name="GridContainer2" type="GridContainer" parent="DialogContainer/MarginContainer"]
+[node name="GridContainer2" type="GridContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="DialogContainer/MarginContainer/GridContainer2"]
+[node name="Label" type="Label" parent="Dialog/MarginContainer/GridContainer2"]
 layout_mode = 2
 text = "Can I borrow a $1000?"
 
