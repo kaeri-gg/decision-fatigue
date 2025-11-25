@@ -292,5 +292,3 @@ script = ExtResource("7_c3r7o")
 [node name="Player" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("8_wmvsh")
-
-[connection signal="pressed" from="DiceContainer/VBoxContainer/RollButton" to="." method="_on_roll_pressed"]

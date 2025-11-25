@@ -17,4 +17,7 @@ func on_show_board_pressed() -> void:
 	add_child(board)
 
 func on_restart_game_pressed() -> void:
-	remove_child(board)
+	if board and board.get_parent():
+		remove_child(board)
+		board.queue_free()
+	board = null

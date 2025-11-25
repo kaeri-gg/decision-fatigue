@@ -11,13 +11,13 @@ extends PanelContainer
 # Manually aligned origin point
 const ORIGIN = Vector2(0, 0)
 
+var _value: int = 1
 var value: int:
-	## @Readonly
-	get: return value
+	get: return _value
 
+var _is_rolling: bool = false
 var is_rolling: bool:
-	## @Readonly
-	get: return is_rolling
+	get: return _is_rolling
 	
 	## @Private
 var _faces: Array[Resource] = []
@@ -35,14 +35,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if is_rolling:
-		value = _utils.get_random_value(1, 6)
-		_material.texture = _faces[value -1]
+	if _is_rolling:
+		_value = _utils.get_random_value(1, 6)
+		_material.texture = _faces[_value - 1]
 
 
 # @Public, meant to be called in other scrips
 func roll(roll_time_sec: float) -> int:
-	is_rolling = true
+	_is_rolling = true
 
 	var rolling_tween = create_tween()
 	var moving_tween = create_tween()
@@ -58,6 +58,6 @@ func roll(roll_time_sec: float) -> int:
 
 	await _utils.timeout(roll_time_sec)
 
-	is_rolling = false
+	_is_rolling = false
 	
-	return value
+	return _value
