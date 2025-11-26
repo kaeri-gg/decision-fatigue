@@ -5,10 +5,9 @@ extends Control
 @onready var dice: Dice = $DiceContainer
 @onready var button: Button = $DiceContainer/VBoxContainer/RollButton
 @onready var player: Player = %Player
+@onready var background: Panel = $Background
 
-
-func _ready() -> void:
-	button.pressed.connect(on_roll_btn_pressed)
+const BoardScene = preload("res://scenes/board.tscn")
 
 func on_roll_btn_pressed() -> void:
 	if dice.is_rolling: 
@@ -40,3 +39,11 @@ func animate_in_sequense(from, to) -> void:
 		await tiles.animate_by(idx)
 	
 	tiles.highlight_by(to)
+
+
+func _on_board_background_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		close_board()
+
+func close_board() -> void:
+	hide()
