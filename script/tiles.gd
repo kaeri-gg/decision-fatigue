@@ -24,28 +24,28 @@ const NORMAL = preload("res://themes/normal.tres")
 @onready var utils: Utils = %Utils
 
 var _tiles_count: int = 0
-var _idx_to_btns: Dictionary[int, Button]
+var _idx_to_btns: Array[Button]
 
 func _ready() -> void:
-	_idx_to_btns = {
-		0: button_0,
-		1: button_1,
-		2: button_2,
-		3: button_3,
-		4: button_4,
-		5: button_5,
-		6: button_6,
-		7: button_7,
-		8: button_8,
-		9: button_9,
-		10: button_10,
-		11: button_11,
-		12: button_12,
-		13: button_13,
-		14: button_14,
-		15: button_15
-	}
-	_tiles_count = _idx_to_btns.values().size()
+	_idx_to_btns = [
+		button_0,
+		button_1,
+		button_2,
+		button_3,
+		button_4,
+		button_5,
+		button_6,
+		button_7,
+		button_8,
+		button_9,
+		button_10,
+		button_11,
+		button_12,
+		button_13,
+		button_14,
+		button_15
+	]
+	_tiles_count = _idx_to_btns.size()
 
 func highlight_by(idx: int) -> void:
 	var tile = get_normalized_by(idx)
@@ -74,8 +74,8 @@ func animate_by(idx: int) -> void:
 	var scale_end = Vector2(1, 1)
 
 	var speed = 0.15
-	var position_tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
-	var scale_tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
+	var position_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	var scale_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 
 	position_tween.tween_property(tile, "position", position_start, speed)
 	position_tween.tween_property(tile, "position", position_end, speed)

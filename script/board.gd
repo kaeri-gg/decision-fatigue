@@ -23,8 +23,9 @@ func handle_dice_roll() -> void:
 
 	print("DICE value is: " + str(value))
 	
-	var old_index = player.get_idx()
-	var new_index = player.add_idx_by(value)
+	var old_index = player.index
+	player.index += value # update index
+	var new_index = player.index
 	
 	print("OLD: ", old_index, " NEW: ", new_index)
 
@@ -32,12 +33,10 @@ func handle_dice_roll() -> void:
 	
 
 func animate_in_sequense(from, to) -> void:
-	tiles.unhighlight_by(from)
-
 	# Function range(from, to); 
-	# 'from' is inclusive but we do not need to animate it; we add 1
+	# 'from' is inclusive
 	# 'to' is not inclusive; we add 1
-	for idx in range(from + 1, to + 1):
+	for idx in range(from , to + 1):
 		await tiles.animate_by(idx)
 	
 	tiles.highlight_by(to)

@@ -11,21 +11,15 @@ extends PanelContainer
 # Manually aligned origin point
 const ORIGIN = Vector2(-25, 0)
 
-var _value: int = 1
-var value: int:
-	get: return _value
+# @Public
+var value: int = 1
+var is_rolling: bool = false
 
-var _is_rolling: bool = false
-var is_rolling: bool:
-	get: return _is_rolling
-	
-	## @Private
+# @Private
 var _faces: Array[Resource] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_material.position = ORIGIN
-	
 	_faces.append(load("res://assets/images/dice/dice-01.png"))
 	_faces.append(load("res://assets/images/dice/dice-02.png"))
 	_faces.append(load("res://assets/images/dice/dice-03.png"))
@@ -35,14 +29,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if _is_rolling:
-		_value = _utils.get_random_value(1, 6)
-		_material.texture = _faces[_value - 1]
+	if is_rolling:
+		value = _utils.get_random_value(1, 6)
+		_material.texture = _faces[value - 1]
 
 
 # @Public, meant to be called in other scrips
 func roll(roll_time_sec: float) -> int:
-	_is_rolling = true
+	is_rolling = true
 
 	var rolling_tween = create_tween()
 	var moving_tween = create_tween()
@@ -58,6 +52,6 @@ func roll(roll_time_sec: float) -> int:
 
 	await _utils.timeout(roll_time_sec)
 
-	_is_rolling = false
+	is_rolling = false
 	
-	return _value
+	return value
