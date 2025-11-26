@@ -5,7 +5,7 @@ extends Control
 @onready var dice: Dice = $DiceContainer
 @onready var button: Button = $DiceContainer/VBoxContainer/RollButton
 @onready var player: Player = %Player
-@onready var background: Panel = $Background
+@onready var background: Panel = %Background
 
 const BoardScene = preload("res://scenes/board.tscn")
 
@@ -29,7 +29,6 @@ func handle_dice_roll() -> void:
 	print("OLD: ", old_index, " NEW: ", new_index)
 
 	await animate_in_sequense(old_index, new_index)
-	
 
 func animate_in_sequense(from, to) -> void:
 	# Function range(from, to); 
@@ -40,10 +39,6 @@ func animate_in_sequense(from, to) -> void:
 	
 	tiles.highlight_by(to)
 
-
 func _on_board_background_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		close_board()
-
-func close_board() -> void:
-	hide()
+		hide()

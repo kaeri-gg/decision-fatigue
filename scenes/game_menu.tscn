@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b82nsvh67ll66"]
+[gd_scene load_steps=6 format=3 uid="uid://b82nsvh67ll66"]
 
-[ext_resource type="Theme" uid="uid://cxilw5vo1j3av" path="res://themes/main_menu.tres" id="1_ysvk1"]
-[ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="2_mw6r2"]
+[ext_resource type="Theme" uid="uid://qntu34qpv3p4" path="res://themes/game_menu.tres" id="1_ysvk1"]
+[ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="2_ysvk1"]
 [ext_resource type="Script" uid="uid://b2cb1u0lqn67y" path="res://script/start_button.gd" id="3_ldg7d"]
+[ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="4_mw6r2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw6r2"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -23,56 +26,63 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ysvk1")
 
-[node name="Panel container" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+[node name="MenuContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -300.0
-offset_right = 350.0
-offset_bottom = 300.0
+offset_left = -275.0
+offset_top = -201.0
+offset_right = 275.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_mw6r2")
+theme = ExtResource("2_ysvk1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
 layout_mode = 2
-theme = ExtResource("2_mw6r2")
 
-[node name="Game description" type="Label" parent="Panel container/VBoxContainer"]
+[node name="Game description" type="Label" parent="MenuContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
-theme = ExtResource("2_mw6r2")
 text = "Decision Fatigue is a life-simulation board game where every dice roll forces you to make everyday choices that test how long you can stay happy, kind, and sane while juggling money, respect, and relationships."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel container/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="Panel container/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MenuContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_mw6r2")
 text = "Start Game"
 script = ExtResource("3_ldg7d")
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel container/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="About the game" type="Label" parent="Panel container/VBoxContainer"]
-layout_mode = 2
-text = "About the game"
-horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="Panel container/VBoxContainer/StartButton" to="Panel container/VBoxContainer/StartButton" method="on_start_button_pressed"]
-[connection signal="timeout" from="Timer" to="Panel container/VBoxContainer/StartButton" method="_on_timer_timeout"]
+[node name="AboutContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.5
+offset_top = -137.0
+offset_right = 136.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_mw6r2")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mw6r2")
+
+[node name="About the game" type="Label" parent="AboutContainer"]
+layout_mode = 2
+text = "About the game"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuContainer/VBoxContainer/StartButton" to="MenuContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="MenuContainer/VBoxContainer/StartButton" method="_on_timer_timeout"]

@@ -16,7 +16,6 @@ func _on_show_board_pressed() -> void:
 	board = BoardScene.instantiate()
 	add_child(board)
 
-
 func _on_restart_game_pressed() -> void:
 	if board and board.get_parent():
 		remove_child(board)

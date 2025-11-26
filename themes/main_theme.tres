@@ -1,15 +1,32 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bylq6dkpla5iv"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bylq6dkpla5iv"]
 
-[ext_resource type="StyleBox" uid="uid://vgkrtmcucalx" path="res://themes/button_primary.tres" id="1_ydht1"]
+[ext_resource type="StyleBox" uid="uid://dj1wxm4cqeew0" path="res://themes/button/button_primary_disabled.tres" id="1_7ceur"]
+[ext_resource type="StyleBox" uid="uid://bckkuqk788wjd" path="res://themes/button/button_primary_hover.tres" id="1_8gw6x"]
+[ext_resource type="StyleBox" uid="uid://vgkrtmcucalx" path="res://themes/button/button_primary.tres" id="1_ydht1"]
 [ext_resource type="StyleBox" uid="uid://uvtphp454ybb" path="res://themes/menu_container_theme.tres" id="2_8gw6x"]
+[ext_resource type="StyleBox" uid="uid://cwe7oc14a1t3g" path="res://themes/button/button_primary_focus.tres" id="2_uobgu"]
+[ext_resource type="StyleBox" uid="uid://depfsmdhaxwd1" path="res://themes/button/new_style_box_pressed.tres" id="3_g21io"]
 [ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/fonts/DarumadropOne-Regular.ttf" id="3_ydht1"]
 
+[sub_resource type="Gradient" id="Gradient_ydht1"]
+colors = PackedColorArray(0.23045874, 0.14139888, 0.5510241, 1, 0.7015128, 0.7800427, 0.9825483, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gw6x"]
+gradient = SubResource("Gradient_ydht1")
+fill_from = Vector2(0.5, 0.88461536)
+fill_to = Vector2(0.53205127, 0)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g21io"]
+texture = SubResource("GradientTexture2D_8gw6x")
 
 [resource]
 default_font = ExtResource("3_ydht1")
-default_font_size = 30
+default_font_size = 20
+Button/styles/disabled = ExtResource("1_7ceur")
+Button/styles/focus = ExtResource("2_uobgu")
+Button/styles/hover = ExtResource("1_8gw6x")
 Button/styles/normal = ExtResource("1_ydht1")
+Button/styles/pressed = ExtResource("3_g21io")
 Panel/styles/panel = SubResource("StyleBoxTexture_g21io")
 PanelContainer/styles/panel = ExtResource("2_8gw6x")
 VBoxContainer/constants/separation = 10
