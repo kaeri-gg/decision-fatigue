@@ -5,13 +5,12 @@
 [ext_resource type="Theme" uid="uid://d0qi1umlogmpc" path="res://themes/plain_panel.tres" id="3_7ykc4"]
 [ext_resource type="Texture2D" uid="uid://cmp8cfss4c1fv" path="res://assets/images/background/bg.jpg" id="3_gubc5"]
 [ext_resource type="Script" uid="uid://clikygoon7ctp" path="res://script/dialog.gd" id="4_pu3yx"]
+[ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="4_rt2n2"]
 
 [sub_resource type="Theme" id="Theme_gubc5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
-
-[sub_resource type="Theme" id="Theme_pu3yx"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -33,22 +32,36 @@ grow_vertical = 2
 theme = SubResource("Theme_gubc5")
 theme_override_styles/panel = SubResource("StyleBoxTexture_rt2n2")
 
-[node name="ShowBoard" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="Buttons" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -88.0
-offset_bottom = 32.0
-grow_horizontal = 0
+grow_horizontal = 2
+theme = ExtResource("3_7ykc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="ShowBoard" type="Button" parent="Buttons/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_rt2n2")
 text = "Show board"
 
-[node name="RestartGame" type="Button" parent="."]
+[node name="RestartGame" type="Button" parent="Buttons/MarginContainer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_rt2n2")
 text = "Restart"
 
 [node name="StandingContainer" type="PanelContainer" parent="."]
@@ -61,77 +74,107 @@ offset_left = -150.0
 offset_right = 150.0
 offset_bottom = 150.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("3_7ykc4")
 
-[node name="Grid" type="GridContainer" parent="StandingContainer"]
+[node name="Margin" type="MarginContainer" parent="StandingContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="Grid" type="GridContainer" parent="StandingContainer/Margin"]
+layout_mode = 2
+theme_override_constants/h_separation = 13
 columns = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StandingContainer/Grid"]
+[node name="Labels" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = 8
+theme_override_constants/separation = 3
 
-[node name="Label" type="Label" parent="StandingContainer/Grid/VBoxContainer"]
+[node name="Label" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Happiness"
 
-[node name="Label2" type="Label" parent="StandingContainer/Grid/VBoxContainer"]
+[node name="Label2" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Money"
 
-[node name="Label3" type="Label" parent="StandingContainer/Grid/VBoxContainer"]
+[node name="Label3" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Respect"
 
-[node name="Label4" type="Label" parent="StandingContainer/Grid/VBoxContainer"]
+[node name="Label4" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Relationship"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="StandingContainer/Grid"]
+[node name="Bars" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/Grid/VBoxContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+rounded = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="ProgressBar2" type="ProgressBar" parent="StandingContainer/Grid/VBoxContainer2"]
+[node name="ProgressBar3" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="ProgressBar3" type="ProgressBar" parent="StandingContainer/Grid/VBoxContainer2"]
+[node name="ProgressBar4" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="ProgressBar4" type="ProgressBar" parent="StandingContainer/Grid/VBoxContainer2"]
+[node name="Stats" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
 layout_mode = 2
-size_flags_horizontal = 3
-rounded = true
+theme_override_constants/separation = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="StandingContainer/Grid"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Label2" type="Label" parent="StandingContainer/Grid/VBoxContainer3"]
+[node name="Label2" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label3" type="Label" parent="StandingContainer/Grid/VBoxContainer3"]
+[node name="Label3" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label4" type="Label" parent="StandingContainer/Grid/VBoxContainer3"]
+[node name="Label4" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label5" type="Label" parent="StandingContainer/Grid/VBoxContainer3"]
+[node name="Label5" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
+
+[node name="NotificationContainer" type="PanelContainer" parent="StandingContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme = ExtResource("3_7ykc4")
+
+[node name="Margin" type="MarginContainer" parent="StandingContainer/NotificationContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="StandingContainer/NotificationContainer/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8862745, 0.77254903, 0.9372549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.7882353)
+theme_override_font_sizes/font_size = 22
+text = "Bill just paid you your $300!"
+horizontal_alignment = 1
 
 [node name="Dialog" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -192,30 +235,5 @@ mouse_filter = 2
 layout_mode = 2
 text = "Can I borrow a $1000?"
 
-[node name="NotificationContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-mouse_filter = 2
-theme = ExtResource("3_7ykc4")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="NotificationContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="NotificationContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-mouse_filter = 2
-theme = SubResource("Theme_pu3yx")
-
-[node name="Label" type="Label" parent="NotificationContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.2784314, 0.17254902, 1, 1)
-theme_override_font_sizes/font_size = 22
-text = "Bill just paid you your $300 back "
-horizontal_alignment = 1
-
-[connection signal="pressed" from="ShowBoard" to="." method="_on_show_board_pressed"]
-[connection signal="pressed" from="RestartGame" to="." method="_on_restart_game_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/ShowBoard" to="." method="_on_show_board_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/RestartGame" to="." method="_on_restart_game_pressed"]
