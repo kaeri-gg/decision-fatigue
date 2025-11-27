@@ -30,7 +30,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if is_rolling:
-		value = _utils.get_random_value(1, 6)
+		value = randi_range(1, 6)
 		_material.texture = _faces[value - 1]
 
 
@@ -41,7 +41,7 @@ func roll(roll_time_sec: float) -> int:
 	var rolling_tween = create_tween()
 	var moving_tween = create_tween()
 	var bounce_fn = moving_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-	var bounce_from = Vector2(_utils.get_random_value(-50, 50), -50)
+	var bounce_from = Vector2(randi_range(-50, 50), -50)
 
 	_material.position = bounce_from
 
