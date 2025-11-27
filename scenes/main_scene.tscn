@@ -95,19 +95,19 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 3
 
-[node name="Label" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
+[node name="HappinessLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Happiness"
 
-[node name="Label2" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
+[node name="MoneyLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Money"
 
-[node name="Label3" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
+[node name="RespectLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Respect"
 
-[node name="Label4" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
+[node name="RelationshipLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Relationship"
 
@@ -116,44 +116,47 @@ custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="ProgressBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+[node name="HappinessBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 50.0
 rounded = true
 
-[node name="ProgressBar2" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+[node name="MoneyBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
+value = 40.0
 rounded = true
 
-[node name="ProgressBar3" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+[node name="RespectBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
+value = 20.0
 rounded = true
 
-[node name="ProgressBar4" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+[node name="RelationshipBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 layout_mode = 2
 size_flags_horizontal = 3
+value = 10.0
 rounded = true
 
 [node name="Stats" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Label2" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
+[node name="HappinessPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label3" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
+[node name="MoneyPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label4" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
+[node name="RespectPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
-[node name="Label5" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
+[node name="RelationshipPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 layout_mode = 2
 text = "+ 10"
 
@@ -167,7 +170,7 @@ theme = ExtResource("3_7ykc4")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="StandingContainer/NotificationContainer/Margin"]
+[node name="NotificationLabel" type="Label" parent="StandingContainer/NotificationContainer/Margin"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8862745, 0.77254903, 0.9372549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
@@ -194,44 +197,44 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="Dialog/MarginContainer"]
+[node name="PlayerContainer" type="GridContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="GridContainer" parent="Dialog/MarginContainer/GridContainer"]
+[node name="VBoxContainer" type="GridContainer" parent="Dialog/MarginContainer/PlayerContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 columns = 2
 
-[node name="Button" type="Button" parent="Dialog/MarginContainer/GridContainer/VBoxContainer"]
+[node name="YesButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
 layout_mode = 2
 text = "Yes"
 
-[node name="Button2" type="Button" parent="Dialog/MarginContainer/GridContainer/VBoxContainer"]
+[node name="NoButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
 layout_mode = 2
 text = "No"
 
-[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/GridContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/PlayerContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/MarginContainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/MarginContainer/PlayerContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Dialog/MarginContainer/GridContainer/HBoxContainer"]
+[node name="PlayerLabel" type="Label" parent="Dialog/MarginContainer/PlayerContainer/HBoxContainer"]
 layout_mode = 2
 text = "He didn't pay you
 back before!"
 
-[node name="GridContainer2" type="GridContainer" parent="Dialog/MarginContainer"]
+[node name="NPCContainer" type="GridContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Dialog/MarginContainer/GridContainer2"]
+[node name="NPCLabel" type="Label" parent="Dialog/MarginContainer/NPCContainer"]
 layout_mode = 2
 text = "Can I borrow a $1000?"
 

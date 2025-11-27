@@ -4,10 +4,11 @@ extends PanelContainer
 signal on_accept(payload)
 signal on_cancel(payload)
 
-@onready var _accept_button: Button = $"MarginContainer/GridContainer/VBoxContainer/Button"
-@onready var _cancel_button: Button = $"MarginContainer/GridContainer/VBoxContainer/Button2"
-@onready var _context_label: Label = $"MarginContainer/GridContainer/HBoxContainer/Label"
-@onready var _prompt_label: Label = $"MarginContainer/GridContainer2/Label"
+@onready var _accept_button: Button = $MarginContainer/PlayerContainer/VBoxContainer/YesButton
+@onready var _cancel_button: Button = $MarginContainer/PlayerContainer/VBoxContainer/NoButton
+@onready var _player_context_label: Label = $MarginContainer/PlayerContainer/HBoxContainer/PlayerLabel
+@onready var _npc_prompt_label: Label = $MarginContainer/NPCContainer/NPCLabel
+
 
 var _id: int
 
@@ -26,8 +27,8 @@ func hide_dialog() -> void:
 	hide()
 
 func update_content(context_text: String, prompt_text: String) -> void:
-	_context_label.text = context_text
-	_prompt_label.text = prompt_text
+	_player_context_label.text = context_text
+	_npc_prompt_label.text = prompt_text
 
 func _emit_accept() -> void:
 	emit_signal("on_accept", _id)

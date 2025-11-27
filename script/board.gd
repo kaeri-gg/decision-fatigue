@@ -28,9 +28,9 @@ func handle_dice_roll() -> void:
 	
 	print("OLD: ", old_index, " NEW: ", new_index)
 
-	await animate_in_sequense(old_index, new_index)
+	await animate_in_sequence(old_index, new_index)
 
-func animate_in_sequense(from, to) -> void:
+func animate_in_sequence(from, to) -> void:
 	# Function range(from, to); 
 	# 'from' is inclusive
 	# 'to' is not inclusive; we add 1
