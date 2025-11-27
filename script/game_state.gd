@@ -4,7 +4,7 @@ extends Node
 signal stats_changed(stats: Dictionary)
 signal game_over(reason: String)
 
-# Player stats (0-100 range)
+# Player stats (TODO: Randomise based on social class.)
 var happiness: int = 50
 var money: int = 50
 var respect: int = 50
@@ -23,7 +23,7 @@ func modify_stats(happiness_delta: int, money_delta: int, respect_delta: int, re
 	# Emit signal with current stats
 	stats_changed.emit(get_stats())
 	
-	# Check for game over conditions
+	# Check if game is over
 	check_game_over()
 
 # Get current stats as a dictionary
@@ -64,7 +64,7 @@ func reset_stats() -> void:
 	stats_changed.emit(get_stats())
 	print("Stats reset to defaults")
 
-# Get a formatted string showing stat changes (for UI feedback)
+# Get a formatted string showing stat changes - for UI updates
 func format_stat_changes(happiness_delta: int, money_delta: int, respect_delta: int, relationship_delta: int) -> String:
 	var changes: Array[String] = []
 	

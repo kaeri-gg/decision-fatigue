@@ -1,6 +1,8 @@
 class_name Board
 extends Control
 
+signal tile_landed(tile_index: int)
+
 @onready var tiles: Tiles = $TilesPanel
 @onready var dice: Dice = $DiceContainer
 @onready var button: Button = $DiceContainer/VBoxContainer/RollButton
@@ -29,6 +31,10 @@ func handle_dice_roll() -> void:
 	print("OLD: ", old_index, " NEW: ", new_index)
 
 	await animate_in_sequence(old_index, new_index)
+	
+	var landed_index = tiles.normalize_index(new_index)
+	tile_landed.emit(landed_index)
+	player.index = landed_index
 
 func animate_in_sequence(from, to) -> void:
 	# Function range(from, to); 

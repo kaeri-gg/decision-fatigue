@@ -87,6 +87,12 @@ func animate_by(idx: int) -> void:
 	# Reset style
 	unhighlight_by(idx)
 
+func normalize_index(idx: int) -> int:
+	return idx % _tiles_count
+
+func get_tile_count() -> int:
+	return _tiles_count
+
 func get_normalized_by(idx: int) -> Button:
 	# Keep remainder only from index
-	return _idx_to_btns[idx % _tiles_count]
+	return _idx_to_btns[normalize_index(idx)]

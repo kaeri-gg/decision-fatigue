@@ -9,7 +9,6 @@ signal on_cancel(payload)
 @onready var _player_context_label: Label = $MarginContainer/PlayerContainer/HBoxContainer/PlayerLabel
 @onready var _npc_prompt_label: Label = $MarginContainer/NPCContainer/NPCLabel
 
-
 var _id: int
 
 func _ready() -> void:
