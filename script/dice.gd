@@ -1,7 +1,7 @@
 class_name Dice
 extends PanelContainer
 
-@onready var _material: TextureRect = $VBoxContainer/CenterContainer/Dice
+@onready var _material: TextureRect = %Dice
 @onready var _utils: Utils = %Utils
 
 # We make getter for variables that are not meant to be access outside this file

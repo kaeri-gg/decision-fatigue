@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ck6nh867pvkwl"]
+
+[sub_resource type="Gradient" id="Gradient_mxaj0"]
+offsets = PackedFloat32Array(0, 0.49171272, 1)
+colors = PackedColorArray(0.69645685, 0.6289909, 0.9810464, 1, 0.6365718, 0.886519, 0.97308785, 1, 0.96197027, 0.5881543, 0.67088044, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vkp3y"]
+gradient = SubResource("Gradient_mxaj0")
+fill_from = Vector2(0.52991456, 1)
+fill_to = Vector2(0.5448718, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lehx"]
+texture = SubResource("GradientTexture2D_vkp3y")
+
+[resource]
+Panel/styles/panel = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_0lehx")

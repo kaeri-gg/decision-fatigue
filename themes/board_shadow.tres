@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://1ausl5qhwjfp"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://drk7c84mgk0h3"]
 
 [sub_resource type="Gradient" id="Gradient_w42lh"]
 colors = PackedColorArray(0.37593353, 0.5160063, 0.8640577, 1, 1, 0.79607844, 1, 1)
@@ -11,5 +11,15 @@ fill_to = Vector2(0.56837606, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfo7w"]
 texture = SubResource("GradientTexture2D_xkrn5")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a2bx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j42c"]
+bg_color = Color(0.71, 0.53249997, 0.7040833, 0)
+shadow_size = 10
+
 [resource]
 /styles/panel = SubResource("StyleBoxTexture_xfo7w")
+Panel/styles/panel = SubResource("StyleBoxFlat_5a2bx")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_0j42c")

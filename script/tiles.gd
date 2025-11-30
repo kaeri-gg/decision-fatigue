@@ -4,22 +4,22 @@ extends Panel
 const HIGHLIGHTED = preload("res://themes/button/highlighted.tres")
 const NORMAL = preload("res://themes/button/normal.tres")
 
-@onready var button_0: Button = $HorizontalTiles/Top/GridContainer/Button0
-@onready var button_1: Button = $HorizontalTiles/Top/GridContainer/Button1
-@onready var button_2: Button = $HorizontalTiles/Top/GridContainer/Button2
-@onready var button_3: Button = $HorizontalTiles/Top/GridContainer/Button3
-@onready var button_4: Button = $HorizontalTiles/Top/GridContainer/Button4
-@onready var button_5: Button = $VerticalTiles/Right/GridContainer/Button5
-@onready var button_6: Button = $VerticalTiles/Right/GridContainer/Button6
-@onready var button_7: Button = $VerticalTiles/Right/GridContainer/Button7
-@onready var button_8: Button = $HorizontalTiles/Bottom/GridContainer/Button8
-@onready var button_9: Button = $HorizontalTiles/Bottom/GridContainer/Button9
-@onready var button_10: Button = $HorizontalTiles/Bottom/GridContainer/Button10
-@onready var button_11: Button = $HorizontalTiles/Bottom/GridContainer/Button11
-@onready var button_12: Button = $HorizontalTiles/Bottom/GridContainer/Button12
-@onready var button_13: Button = $VerticalTiles/Left/GridContainer/Button13
-@onready var button_14: Button = $VerticalTiles/Left/GridContainer/Button14
-@onready var button_15: Button = $VerticalTiles/Left/GridContainer/Button15
+@onready var button_0: Button = %Button0
+@onready var button_1: Button = %Button1
+@onready var button_2: Button = %Button2
+@onready var button_3: Button = %Button3
+@onready var button_4: Button = %Button4
+@onready var button_5: Button = %Button5
+@onready var button_6: Button = %Button6
+@onready var button_7: Button = %Button7
+@onready var button_8: Button = %Button8
+@onready var button_9: Button = %Button9
+@onready var button_10: Button = %Button10
+@onready var button_11: Button = %Button11
+@onready var button_12: Button = %Button12
+@onready var button_13: Button = %Button13
+@onready var button_14: Button = %Button14
+@onready var button_15: Button = %Button15
 
 var _tiles_count: int = 0
 var _idx_to_btns: Array[Button]

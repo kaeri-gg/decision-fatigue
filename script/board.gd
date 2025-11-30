@@ -5,8 +5,8 @@ signal index_update(index: int)
 
 @onready var tiles: Tiles = $TilesPanel
 @onready var dice: Dice = $DiceContainer
-@onready var button: Button = $DiceContainer/VBoxContainer/RollButton
 @onready var background: Panel = %Background
+@onready var roll_button: Button = %RollButton
 
 const BoardScene: PackedScene = preload("res://scenes/board.tscn")
 
@@ -16,9 +16,9 @@ func on_roll_btn_pressed() -> void:
 	if dice.is_rolling: 
 		return
 
-	button.disabled = true
+	roll_button.disabled = true
 	await handle_dice_roll()
-	button.disabled = false
+	roll_button.disabled = false
 
 func handle_dice_roll() -> void:
 	var value = await dice.roll(1.0)

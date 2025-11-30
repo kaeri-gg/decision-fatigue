@@ -26,6 +26,8 @@ var active_tile: int = -1
 
 func _ready() -> void:
 	# Initialise the board
+	await utils.fade_in(self)
+	
 	board.hide()
 	add_child(board)
 	board.index_update.connect(on_index_update)
@@ -40,7 +42,8 @@ func _ready() -> void:
 	stats.update_bars(gameState.get_stats())
 
 func on_show_board_pressed() -> void:
-	board.show()
+	await board.fade_in()
+	#board.show()
 
 func on_restart_game_pressed() -> void:
 	if board and board.get_parent():
