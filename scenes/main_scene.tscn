@@ -1,16 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=15 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
-[ext_resource type="Theme" uid="uid://d0qi1umlogmpc" path="res://themes/plain_panel.tres" id="3_7ykc4"]
 [ext_resource type="Texture2D" uid="uid://cmp8cfss4c1fv" path="res://assets/images/background/bg.jpg" id="3_gubc5"]
+[ext_resource type="Theme" uid="uid://dyc0muyw0pn0a" path="res://themes/mainScene/main_scene_standing.tres" id="4_4w45t"]
 [ext_resource type="Script" uid="uid://clikygoon7ctp" path="res://script/dialog.gd" id="4_pu3yx"]
-[ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="4_rt2n2"]
+[ext_resource type="Theme" uid="uid://duihjbtatm1t6" path="res://themes/mainScene/main_scene_top_buttons.tres" id="5_r6p65"]
 [ext_resource type="Script" uid="uid://4yenur4es42x" path="res://script/stats.gd" id="6_c16ls"]
-[ext_resource type="Theme" uid="uid://d30tv7dxv3hau" path="res://themes/stats/reduced_stats.tres" id="7_c1pb6"]
 [ext_resource type="Theme" uid="uid://b7x0feiyhulet" path="res://themes/stats/default_stats.tres" id="8_c1pb6"]
-
-[sub_resource type="Theme" id="Theme_gubc5"]
+[ext_resource type="Theme" uid="uid://b64y7twca0w0t" path="res://themes/mainScene/main_scene_dialog.tres" id="10_e1cbu"]
+[ext_resource type="Theme" uid="uid://ovygy2ea0npu" path="res://themes/mainScene/main_scene_dialog_buttons.tres" id="10_mngbo"]
+[ext_resource type="Theme" uid="uid://jaucvvcvy2kv" path="res://themes/mainScene/main_scene_dialog_button_no.tres" id="11_4w45t"]
+[ext_resource type="Theme" uid="uid://bjrm3ufyiq51m" path="res://themes/mainScene/main_scene_dialog_text.tres" id="11_mngbo"]
+[ext_resource type="Theme" uid="uid://ccbo7clw1dlis" path="res://themes/mainScene/main_scene_dialog_player.tres" id="11_r6p65"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
@@ -32,7 +34,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_gubc5")
 theme_override_styles/panel = SubResource("StyleBoxTexture_rt2n2")
 
 [node name="Buttons" type="Panel" parent="."]
@@ -40,7 +41,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-theme = ExtResource("3_7ykc4")
+theme = ExtResource("4_4w45t")
 
 [node name="MarginContainer" type="MarginContainer" parent="Buttons"]
 layout_mode = 1
@@ -49,22 +50,29 @@ anchor_right = 1.0
 offset_bottom = 70.0
 grow_horizontal = 2
 mouse_filter = 2
+theme = ExtResource("5_r6p65")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 
-[node name="ShowBoard" type="Button" parent="Buttons/MarginContainer"]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="Buttons/MarginContainer"]
+custom_minimum_size = Vector2(140, 70)
 layout_mode = 2
 size_flags_horizontal = 8
-theme = ExtResource("4_rt2n2")
-text = "Show board"
 
-[node name="RestartGame" type="Button" parent="Buttons/MarginContainer"]
+[node name="ShowBoard" type="Button" parent="Buttons/MarginContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "Show board"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Buttons/MarginContainer"]
+custom_minimum_size = Vector2(140, 70)
+layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("4_rt2n2")
+
+[node name="RestartGame" type="Button" parent="Buttons/MarginContainer/PanelContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Restart"
 
 [node name="StandingContainer" type="PanelContainer" parent="."]
@@ -78,11 +86,11 @@ offset_right = 150.0
 offset_bottom = 150.0
 grow_horizontal = 2
 mouse_filter = 2
-theme = ExtResource("3_7ykc4")
+theme = ExtResource("4_4w45t")
 
 [node name="Margin" type="MarginContainer" parent="StandingContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -90,6 +98,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Grid" type="GridContainer" parent="StandingContainer/Margin"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/h_separation = 13
 columns = 3
 
@@ -152,26 +161,32 @@ script = ExtResource("6_c16ls")
 [node name="HappinessPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("8_c1pb6")
+text = "00"
 
 [node name="MoneyPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("7_c1pb6")
+theme = ExtResource("8_c1pb6")
+text = "00"
 
 [node name="RespectPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("8_c1pb6")
+text = "00"
 
 [node name="RelationshipPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("8_c1pb6")
+text = "00"
 
 [node name="NotificationContainer" type="PanelContainer" parent="StandingContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
-theme = ExtResource("3_7ykc4")
+theme = ExtResource("4_4w45t")
 
 [node name="Margin" type="MarginContainer" parent="StandingContainer/NotificationContainer"]
 layout_mode = 2
@@ -206,50 +221,84 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
-[node name="PlayerContainer" type="GridContainer" parent="Dialog/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="GridContainer" parent="Dialog/MarginContainer/PlayerContainer"]
+[node name="PlayerContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-mouse_filter = 2
-columns = 2
+theme = ExtResource("11_r6p65")
 
-[node name="YesButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Yes"
-
-[node name="NoButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "No"
-
-[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/PlayerContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialog/MarginContainer/PlayerContainer"]
+custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Dialog/MarginContainer/PlayerContainer"]
+[node name="Margin" type="MarginContainer" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
 layout_mode = 2
-mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="PlayerLabel" type="Label" parent="Dialog/MarginContainer/PlayerContainer/HBoxContainer"]
+[node name="PlayerLabel" type="Label" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("11_mngbo")
 text = "He didn't pay you
 back before!"
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="NPCContainer" type="GridContainer" parent="Dialog/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Grid" type="GridContainer" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="YesButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+theme = ExtResource("10_mngbo")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("11_4w45t")
+text = "No"
+
+[node name="NPCContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="NPCLabel" type="Label" parent="Dialog/MarginContainer/NPCContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Dialog/MarginContainer/NPCContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme = ExtResource("10_e1cbu")
+
+[node name="Margin" type="MarginContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="NPCLabel" type="Label" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("11_mngbo")
 text = "Can I borrow a $1000?"
+horizontal_alignment = 2
+autowrap_mode = 2
 
-[connection signal="pressed" from="Buttons/MarginContainer/ShowBoard" to="." method="on_show_board_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/RestartGame" to="." method="on_restart_game_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/PanelContainer/ShowBoard" to="." method="on_show_board_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/PanelContainer2/RestartGame" to="." method="on_restart_game_pressed"]

@@ -28,9 +28,9 @@ func _ready() -> void:
 	# Initialise the board
 	await utils.fade_in(self)
 	
-	board.hide()
 	add_child(board)
 	board.index_update.connect(on_index_update)
+	await board.fade_in()
 	
 	# Connect to gameState and dialog signals
 	gameState.stats_changed.connect(on_stats_changed)

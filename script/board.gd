@@ -5,7 +5,6 @@ signal index_update(index: int)
 
 @onready var tiles: Tiles = $TilesPanel
 @onready var dice: Dice = $DiceContainer
-@onready var background: Panel = %Background
 @onready var roll_button: Button = %RollButton
 
 const BoardScene: PackedScene = preload("res://scenes/board.tscn")
@@ -46,10 +45,6 @@ func animate_in_sequence(from, to) -> void:
 		await tiles.animate_by(idx)
 	
 	tiles.highlight_by(to)
-
-func _on_board_background_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		hide()
 
 func reset() -> void:
 	tiles.unhighlight_by(index)
