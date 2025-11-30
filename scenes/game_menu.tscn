@@ -61,9 +61,6 @@ layout_mode = 2
 text = "Start Game"
 script = ExtResource("3_ldg7d")
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-
 [node name="AboutContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -85,4 +82,3 @@ text = "About the game"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MenuContainer/VBoxContainer/StartButton" to="MenuContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
-[connection signal="timeout" from="Timer" to="MenuContainer/VBoxContainer/StartButton" method="_on_timer_timeout"]

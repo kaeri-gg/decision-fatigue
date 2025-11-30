@@ -1,8 +1,8 @@
 class_name Tiles
 extends Panel
 
-const HIGHLIGHTED = preload("res://themes/highlighted.tres")
-const NORMAL = preload("res://themes/normal.tres")
+const HIGHLIGHTED = preload("res://themes/button/highlighted.tres")
+const NORMAL = preload("res://themes/button/normal.tres")
 
 @onready var button_0: Button = $HorizontalTiles/Top/GridContainer/Button0
 @onready var button_1: Button = $HorizontalTiles/Top/GridContainer/Button1
@@ -20,8 +20,6 @@ const NORMAL = preload("res://themes/normal.tres")
 @onready var button_13: Button = $VerticalTiles/Left/GridContainer/Button13
 @onready var button_14: Button = $VerticalTiles/Left/GridContainer/Button14
 @onready var button_15: Button = $VerticalTiles/Left/GridContainer/Button15
-
-@onready var utils: Utils = %Utils
 
 var _tiles_count: int = 0
 var _idx_to_btns: Array[Button]
@@ -48,11 +46,11 @@ func _ready() -> void:
 	_tiles_count = _idx_to_btns.size()
 
 func highlight_by(idx: int) -> void:
-	var tile = get_normalized_by(idx)
+	var tile: Button = get_normalized_by(idx)
 	tile.set_theme(HIGHLIGHTED)
 
 func unhighlight_by(idx: int) -> void:
-	var tile = get_normalized_by(idx)
+	var tile: Button = get_normalized_by(idx)
 	tile.set_theme(NORMAL)
 
 func animate_by(idx: int) -> void:
@@ -60,22 +58,22 @@ func animate_by(idx: int) -> void:
 	highlight_by(idx)
 
 	# Keep remainder only from index
-	var tile = get_normalized_by(idx)
+	var tile: Button = get_normalized_by(idx)
 	
-	var w = tile.size.x / 4
-	var h = tile.size.y / 4
-	var x = tile.position.x
-	var y = tile.position.y
+	var w: float = tile.size.x / 4
+	var h: float = tile.size.y / 4
+	var x: float = tile.position.x
+	var y: float = tile.position.y
 	
-	var position_start = Vector2(x + w, y + h)
-	var position_end = Vector2(x, y)
+	var position_start: Vector2 = Vector2(x + w, y + h)
+	var position_end: Vector2 = Vector2(x, y)
 
-	var scale_start = Vector2(0.5, 0.5)
-	var scale_end = Vector2(1, 1)
+	var scale_start: Vector2 = Vector2(0.5, 0.5)
+	var scale_end: Vector2 = Vector2(1, 1)
 
-	var speed = 0.15
-	var position_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	var scale_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	var speed: float = 0.15
+	var position_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	var scale_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 
 	position_tween.tween_property(tile, "position", position_start, speed)
 	position_tween.tween_property(tile, "position", position_end, speed)

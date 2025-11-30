@@ -1,15 +1,16 @@
 class_name Board
 extends Control
 
-signal tile_landed(tile_index: int)
+signal index_update(index: int)
 
 @onready var tiles: Tiles = $TilesPanel
 @onready var dice: Dice = $DiceContainer
 @onready var button: Button = $DiceContainer/VBoxContainer/RollButton
-@onready var player: Player = %Player
 @onready var background: Panel = %Background
 
-const BoardScene = preload("res://scenes/board.tscn")
+const BoardScene: PackedScene = preload("res://scenes/board.tscn")
+
+var index: int = 0
 
 func on_roll_btn_pressed() -> void:
 	if dice.is_rolling: 
@@ -24,17 +25,18 @@ func handle_dice_roll() -> void:
 
 	print("DICE value is: " + str(value))
 	
-	var old_index = player.index
-	player.index += value # update index
-	var new_index = player.index
+	var old_index: int = index
+	index += value # update index
+	var new_index: int = index
 	
 	print("OLD: ", old_index, " NEW: ", new_index)
 
 	await animate_in_sequence(old_index, new_index)
+	await utils.timeout(1.5)
 	
-	var landed_index = tiles.normalize_index(new_index)
-	tile_landed.emit(landed_index)
-	player.index = landed_index
+	index = tiles.normalize_index(new_index)
+	index_update.emit(index)
+	
 
 func animate_in_sequence(from, to) -> void:
 	# Function range(from, to); 
@@ -48,3 +50,13 @@ func animate_in_sequence(from, to) -> void:
 func _on_board_background_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		hide()
+
+func reset() -> void:
+	tiles.unhighlight_by(index)
+	index = 0
+	
+func fade_in() -> void:
+	await utils.fade_in(self)
+
+func fade_out() -> void:
+	await utils.fade_out(self)

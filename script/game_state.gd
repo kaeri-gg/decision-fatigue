@@ -1,7 +1,8 @@
+class_name GameState
 extends Node
 
 # Signals emitted when stats change
-signal stats_changed(stats: Dictionary)
+signal stats_changed(changed_stat: Dictionary, global_stats: Dictionary)
 signal game_over(reason: String)
 
 # Player stats (TODO: Randomise based on social class.)
@@ -11,17 +12,17 @@ var respect: int = 50
 var relationship: int = 50
 
 func _ready() -> void:
-	print("GameState initialized")
+	print("Game state initialized.")
 
-# Modify player stats by delta amounts
-func modify_stats(happiness_delta: int, money_delta: int, respect_delta: int, relationship_delta: int) -> void:
-	happiness = clamp(happiness + happiness_delta, 0, 100)
-	money = clamp(money + money_delta, 0, 100)
-	respect = clamp(respect + respect_delta, 0, 100)
-	relationship = clamp(relationship + relationship_delta, 0, 100)
+# Modify player stats by modified amounts
+func modify_stats(modified_stats: Dictionary) -> void:
+	happiness = clamp(happiness + modified_stats.get('happiness'), 0, 100)
+	money = clamp(money + modified_stats.get('money'), 0, 100)
+	respect = clamp(respect + modified_stats.get('respect'), 0, 100)
+	relationship = clamp(relationship + modified_stats.get('relationship'), 0, 100)
 	
 	# Emit signal with current stats
-	stats_changed.emit(get_stats())
+	stats_changed.emit(modified_stats, get_stats())
 	
 	# Check if game is over
 	check_game_over()
@@ -62,19 +63,3 @@ func reset_stats() -> void:
 	respect = 50
 	relationship = 50
 	stats_changed.emit(get_stats())
-	print("Stats reset to defaults")
-
-# Get a formatted string showing stat changes - for UI updates
-func format_stat_changes(happiness_delta: int, money_delta: int, respect_delta: int, relationship_delta: int) -> String:
-	var changes: Array[String] = []
-	
-	if happiness_delta != 0:
-		changes.append("Happiness %s%d" % ["+" if happiness_delta > 0 else "", happiness_delta])
-	if money_delta != 0:
-		changes.append("Money %s%d" % ["+" if money_delta > 0 else "", money_delta])
-	if respect_delta != 0:
-		changes.append("Respect %s%d" % ["+" if respect_delta > 0 else "", respect_delta])
-	if relationship_delta != 0:
-		changes.append("Relationship %s%d" % ["+" if relationship_delta > 0 else "", relationship_delta])
-	
-	return ", ".join(changes)

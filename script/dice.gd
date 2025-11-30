@@ -9,7 +9,7 @@ extends PanelContainer
 # This way we mimic @Readonly feature for variable
 
 # Manually aligned origin point
-const ORIGIN = Vector2(-25, 0)
+const ORIGIN: Vector2 = Vector2(-25, 0)
 
 # @Public
 var value: int = 1
@@ -38,10 +38,10 @@ func _process(_delta: float) -> void:
 func roll(roll_time_sec: float) -> int:
 	is_rolling = true
 
-	var rolling_tween = create_tween()
-	var moving_tween = create_tween()
-	var bounce_fn = moving_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-	var bounce_from = Vector2(randi_range(-50, 50), -50)
+	var rolling_tween: Tween = create_tween()
+	var moving_tween: Tween = create_tween()
+	var bounce_fn: Tween = moving_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	var bounce_from: Vector2 = Vector2(randi_range(-50, 50), -50)
 
 	_material.position = bounce_from
 
