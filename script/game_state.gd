@@ -5,13 +5,13 @@ extends Node
 signal stats_changed(changed_stat: Dictionary, global_stats: Dictionary)
 signal game_over(reason: String)
 
-# Player stats (TODO: Randomise based on social class.)
-var happiness: int = 50
-var money: int = 50
-var respect: int = 50
-var relationship: int = 50
+var happiness: int = 0
+var money: int = 0
+var respect: int = 0
+var relationship: int = 0
 
 func _ready() -> void:
+	reset_stats()
 	print("Game state initialized.")
 
 # Modify player stats by modified amounts
@@ -47,19 +47,23 @@ func check_game_over() -> void:
 		game_over.emit("You lost all respect and were ostracized.")
 	elif relationship <= 0:
 		game_over.emit("All your relationships fell apart.")
-	# Win condition: all stats at 100
-	elif happiness >= 100 and money >= 100 and respect >= 100 and relationship >= 100:
+	elif is_win():
 		game_over.emit("Perfect balance! You mastered life!")
+
+func is_win() -> bool:
+	return happiness >= 100 or money >= 100 or respect >= 100 or relationship >= 100
+
+func is_lose() -> bool:
+	return happiness <= 0 or money <= 0 or respect <= 0 or relationship <= 0
 
 # Check if game is currently over
 func is_game_over() -> bool:
-	return (happiness <= 0 or money <= 0 or respect <= 0 or relationship <= 0 or 
-			(happiness >= 100 and money >= 100 and respect >= 100 and relationship >= 100))
+	return is_win() or is_lose()
 
 # Reset stats to default values
 func reset_stats() -> void:
-	happiness = 50
-	money = 50
-	respect = 50
-	relationship = 50
+	happiness = randi_range(25, 50)
+	money =  randi_range(25, 50)
+	respect =  randi_range(25, 50)
+	relationship =  randi_range(25, 50)
 	stats_changed.emit(get_stats())

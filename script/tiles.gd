@@ -21,11 +21,11 @@ const NORMAL = preload("res://themes/button/normal.tres")
 @onready var button_14: Button = %Button14
 @onready var button_15: Button = %Button15
 
-var _tiles_count: int = 0
-var _idx_to_btns: Array[Button]
+var tiles_count: int = 0
+var idx_to_btns: Array[Button]
 
 func _ready() -> void:
-	_idx_to_btns = [
+	idx_to_btns = [
 		button_0,
 		button_1,
 		button_2,
@@ -43,22 +43,23 @@ func _ready() -> void:
 		button_14,
 		button_15
 	]
-	_tiles_count = _idx_to_btns.size()
+	tiles_count = idx_to_btns.size()
 
 func highlight_by(idx: int) -> void:
-	var tile: Button = get_normalized_by(idx)
+	var tile: Button = get_tile_by(idx)
 	tile.set_theme(HIGHLIGHTED)
 
 func unhighlight_by(idx: int) -> void:
-	var tile: Button = get_normalized_by(idx)
+	var tile: Button = get_tile_by(idx)
 	tile.set_theme(NORMAL)
 
+# It runs 2 animations in parallel: Position and Scale change
 func animate_by(idx: int) -> void:
 	# Apply highlighted style
 	highlight_by(idx)
 
 	# Keep remainder only from index
-	var tile: Button = get_normalized_by(idx)
+	var tile: Button = get_tile_by(idx)
 	
 	var w: float = tile.size.x / 4
 	var h: float = tile.size.y / 4
@@ -85,12 +86,12 @@ func animate_by(idx: int) -> void:
 	# Reset style
 	unhighlight_by(idx)
 
-func normalize_index(idx: int) -> int:
-	return idx % _tiles_count
+# Gets modular(reminder) part of index, to make sure array index does not overflow
+func get_tile_index(idx: int) -> int:
+	return idx % tiles_count
 
-func get_tile_count() -> int:
-	return _tiles_count
-
-func get_normalized_by(idx: int) -> Button:
-	# Keep remainder only from index
-	return _idx_to_btns[normalize_index(idx)]
+func get_tile_by(idx: int) -> Button:
+	# Normalized index
+	var index: int = get_tile_index(idx)
+	# Rreturn tile from already mapped tiles array
+	return idx_to_btns[index]

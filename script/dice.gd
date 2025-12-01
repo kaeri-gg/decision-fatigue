@@ -2,13 +2,12 @@ class_name Dice
 extends PanelContainer
 
 @onready var _material: TextureRect = %Dice
-@onready var _utils: Utils = %Utils
 
 # We make getter for variables that are not meant to be access outside this file
 # We set getters only which prevents setting the value outside the script
 # This way we mimic @Readonly feature for variable
 
-# Manually aligned origin point
+# Manually aligned origin point, Dice width is 50
 const ORIGIN: Vector2 = Vector2(-25, 0)
 
 # @Public
@@ -50,7 +49,7 @@ func roll(roll_time_sec: float) -> int:
 
 	bounce_fn.tween_property(_material, "position", ORIGIN, roll_time_sec)
 
-	await _utils.timeout(roll_time_sec)
+	await utils.timeout(roll_time_sec)
 
 	is_rolling = false
 	

@@ -43,7 +43,6 @@ func _ready() -> void:
 
 func on_show_board_pressed() -> void:
 	await board.fade_in()
-	#board.show()
 
 func on_restart_game_pressed() -> void:
 	if board and board.get_parent():
@@ -64,35 +63,42 @@ func on_game_over(reason: String) -> void:
 	if board:
 		await board.fade_out()
 
-func on_index_update(tile_index: int) -> void:
+func on_index_update(index: int) -> void:
 	if gameState.is_game_over():
 		return
-	var scenario: Dictionary = pick_scenario_for_tile(tile_index)
+	
+	var scenario: Dictionary = pick_scenario_for_tile(index)
 	if scenario.is_empty():
 		dialog.hide_dialog()
-		OS.alert("No such scenario by idx: " + str(tile_index), "Alert!")
+		# To figure out whether our data is corrupted
+		OS.alert("No such scenario by idx: " + str(index), "Alert!")
 		return
-		
-	active_tile = tile_index
-	active_scenario = scenario
-	var context_text: String = "%s — %s" % [scenario.get("topic", "Event"), scenario.get("context", "")]
-	dialog.show_dialog(context_text, scenario.get("prompt"), tile_index)
-	
-	await board.fade_out()
-	notification_label.text = "You landed on tile %d: %s" % [tile_index, scenario.get("topic", "Event")]
 
-func pick_scenario_for_tile(tile_index: int) -> Dictionary:
-	if not scenarios.tiles.get(tile_index):
+	await board.fade_out()
+
+	active_tile = index
+	active_scenario = scenario
+	
+	var topic: String = scenario.get("topic", "")
+	var context: String = scenario.get("context", "")
+	var prompt: String = scenario.get("prompt", "")
+	
+	dialog.show_dialog(context, prompt, index)
+	
+	notification_label.text =  "You landed on tile #" + str(index) + " - " + topic
+
+func pick_scenario_for_tile(index: int) -> Dictionary:
+	if not scenarios.tiles.get(index):
 		return {}
 
-	var tile_data: Dictionary = scenarios.tiles.get(tile_index)
-	var options: Array = tile_data.get("scenarios", [])
+	var data: Dictionary = scenarios.tiles.get(index)
+	var options: Array = data.get("scenarios", [])
 	if options.is_empty():
 		return {}
 
 	var scenario: Dictionary = options[randi() % options.size()].duplicate()
-	# Carry topic info forward for UI
-	scenario["topic"] = tile_data.get("topic", "Event")
+	# Carry topic info forward for UI, we add additional property to scenario
+	scenario["topic"] = data.get("topic", "")
 	
 	return scenario
 

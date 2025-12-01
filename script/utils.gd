@@ -1,20 +1,29 @@
 class_name Utils
 extends Node
 
-# Awaits current line before moving to the next one. Awaitable
+# Async function to add desired delays between execution lines
 func timeout(delay: float) -> void:
 	await get_tree().create_timer(delay).timeout
 
-
+# It's like CSS transition for any Node to simulate fade in
+# Equivalent to { transition: opacity 0.4s; }
 func fade_in(node: Control, duration: float = 0.4) -> void:
+	# Create Tween instance 
+	var tween: Tween = node.get_tree().create_tween()
+	# Same as CSS opacity(Aplha) but godot named it weirdly :|
 	node.modulate.a = 0.0
 	node.visible = true
-	var tween: Tween = node.get_tree().create_tween()
-	tween.tween_property(node, "modulate:a", 1.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	await tween.finished
+	# Configure animation to set an opacity(Alpha) to 1
+	tween.tween_property(node, "modulate:a", 1.0, duration).set_ease(Tween.EASE_OUT)
+	# Wait for the animatin to finish before it resolves
+	await timeout(duration)
 	
 func fade_out(node: Control, duration: float = 0.4) -> void:
+	# Create Tween instance 
 	var tween: Tween = node.get_tree().create_tween()
-	tween.tween_property(node, "modulate:a", 0.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	await tween.finished
+	# Configure animation to set an opacity(Alpha) to 0
+	tween.tween_property(node, "modulate:a", 0.0, duration).set_ease(Tween.EASE_IN)
+	# Wait for the animatin to finish
+	await timeout(duration)
+	# And only then mark it as hidden
 	node.visible = false

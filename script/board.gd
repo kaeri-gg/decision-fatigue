@@ -21,23 +21,19 @@ func on_roll_btn_pressed() -> void:
 
 func handle_dice_roll() -> void:
 	var value = await dice.roll(1.0)
-
-	print("DICE value is: " + str(value))
 	
 	var old_index: int = index
 	index += value # update index
 	var new_index: int = index
 	
-	print("OLD: ", old_index, " NEW: ", new_index)
-
-	await animate_in_sequence(old_index, new_index)
+	await animate(old_index, new_index)
 	await utils.timeout(1.5)
 	
-	index = tiles.normalize_index(new_index)
+	index = tiles.get_tile_index(new_index)
 	index_update.emit(index)
 	
-
-func animate_in_sequence(from, to) -> void:
+# Animates the tiles in sequense
+func animate(from, to) -> void:
 	# Function range(from, to); 
 	# 'from' is inclusive
 	# 'to' is not inclusive; we add 1
@@ -46,12 +42,16 @@ func animate_in_sequence(from, to) -> void:
 	
 	tiles.highlight_by(to)
 
+# Unhighlights last highlighted tile and resets the index
 func reset() -> void:
 	tiles.unhighlight_by(index)
-	index = 0
+	index = 0 # Reset
 	
 func fade_in() -> void:
-	await utils.fade_in(self)
+	# 'self' is like 'this' in JS, 
+	# it represents current context, 
+	# which is Board instance in this case
+	await utils.fade_in(self) 
 
 func fade_out() -> void:
 	await utils.fade_out(self)
