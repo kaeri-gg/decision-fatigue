@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=16 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -16,6 +16,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w45t"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -221,13 +224,69 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
-[node name="PlayerContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
+[node name="NPCContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
+
+[node name="PanelContainer" type="PanelContainer" parent="Dialog/MarginContainer/NPCContainer"]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+theme = ExtResource("10_e1cbu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Text" type="MarginContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="NPCLabel" type="Label" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("11_mngbo")
+text = "Can I borrow a $1000?"
+autowrap_mode = 2
+
+[node name="Choices" type="MarginContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Grid" type="GridContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="YesButton" type="Button" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+theme = ExtResource("10_mngbo")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("11_4w45t")
+text = "No"
+
+[node name="PlayerContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
 theme = ExtResource("11_r6p65")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Dialog/MarginContainer/PlayerContainer"]
-custom_minimum_size = Vector2(350, 100)
+custom_minimum_size = Vector2(350, 75)
 layout_mode = 2
 mouse_filter = 2
 
@@ -244,60 +303,8 @@ layout_mode = 2
 theme = ExtResource("11_mngbo")
 text = "He didn't pay you
 back before!"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Grid" type="GridContainer" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/h_separation = 20
-columns = 2
-
-[node name="YesButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer/Grid"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(70, 40)
-layout_mode = 2
-theme = ExtResource("10_mngbo")
-text = "Yes"
-
-[node name="NoButton" type="Button" parent="Dialog/MarginContainer/PlayerContainer/VBoxContainer/MarginContainer/Grid"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-theme = ExtResource("11_4w45t")
-text = "No"
-
-[node name="NPCContainer" type="PanelContainer" parent="Dialog/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Dialog/MarginContainer/NPCContainer"]
-custom_minimum_size = Vector2(350, 75)
-layout_mode = 2
-theme = ExtResource("10_e1cbu")
-
-[node name="Margin" type="MarginContainer" parent="Dialog/MarginContainer/NPCContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
-
-[node name="NPCLabel" type="Label" parent="Dialog/MarginContainer/NPCContainer/PanelContainer/Margin"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("11_mngbo")
-text = "Can I borrow a $1000?"
 horizontal_alignment = 2
+vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="Buttons/MarginContainer/PanelContainer/ShowBoard" to="." method="on_show_board_pressed"]
