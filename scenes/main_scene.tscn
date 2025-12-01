@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=16 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -16,6 +16,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w45t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -94,7 +97,7 @@ size_flags_horizontal = 0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 20
 
 [node name="Grid" type="GridContainer" parent="StandingContainer/Margin"]
 layout_mode = 2
@@ -279,6 +282,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
 
 [node name="PanelContainer" type="PanelContainer" parent="Dialog/MarginContainer/NPCContainer"]
 custom_minimum_size = Vector2(350, 75)
