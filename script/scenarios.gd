@@ -28,19 +28,19 @@ const tiles := [
 		"scenarios": [
 			{
 				"context": "Your cousin who never pays back suddenly appears at your door.",
-				"prompt": "Can I borrow $20? I swear this time I’ll pay!",
+				"prompt": "Can I borrow $50? I swear this time I’ll pay!",
 				"yes": {"happiness": -9, "money": -6, "respect": -3, "relationship": 2},
 				"no": {"happiness": 5, "money": 0, "respect": 4, "relationship": -5}
 			},
 			{
 				"context": "You’re in the middle of online class.",
-				"prompt": "Can you help me set up my email? I forgot my password!",
+				"prompt": "Can you help auntie to set up her email? She forgot her password again!",
 				"yes": {"happiness": -6, "money": 0, "respect": 3, "relationship": 1},
 				"no": {"happiness": 3, "money": 0, "respect": -3, "relationship": -2}
 			},
 			{
 				"context": "Your niece is top 7 in their class.",
-				"prompt": "Hey, your niece is top 7! You probably want to buy her a cake?",
+				"prompt": "Hey, your niece is top 7! You probably want to buy her new clothes?",
 				"yes": {"happiness": -6, "money": -5, "respect": 4, "relationship": 1},
 				"no": {"happiness": -5, "money": 0, "respect": -3, "relationship": -2}
 			}
@@ -58,7 +58,7 @@ const tiles := [
 			},
 			{
 				"context": "You just washed your car this morning.",
-				"prompt": "Can I borrow your car? It’s an emergency, ",
+				"prompt": "Can I borrow your car? Do you have gas as well? It’s an emergency. ",
 				"yes": {"happiness": -8, "money": -5, "respect": -4, "relationship": -3},
 				"no": {"happiness": 4, "money": 0, "respect": 5, "relationship": -3}
 			},
@@ -70,7 +70,7 @@ const tiles := [
 			},
 			{
 				"context": "Your neighbor’s cat is staring at you again.",
-				"prompt": "Can you feed him for a week? We’re going on a trip!",
+				"prompt": "You look amazing today! Can you feed my cat for a week? We’re going on a trip!",
 				"yes": {"happiness": -5, "money": -2, "respect": 3, "relationship": 2},
 				"no": {"happiness": 4, "money": 0, "respect": -2, "relationship": -2}
 			}
@@ -78,25 +78,25 @@ const tiles := [
 	},
 
 	{
-		"topic": "Studies",
+		"topic": "Friends' Drama",
 		"scenarios": [
 			{
-				"context": "Your brain feels like spaghetti after reading three research papers.",
-				"prompt": "Can you lead the group project again? No one else wants to.",
-				"yes": {"happiness": -9, "money": 0, "respect": 9, "relationship": 1},
-				"no": {"happiness": 3, "money": 0, "respect": -6, "relationship": -1}
+				"context": "Your friend is dragging you into drama that started on a group chat you muted months ago.",
+				"prompt": "Be honest, she’s totally overreacting, isn't she?",
+				"yes": {"happiness": -4, "money": 0, "respect": 5, "relationship": -1},
+				"no": {"happiness": 2, "money": 0, "respect": -3, "relationship": -2}
 			},
 			{
-				"context": "You finally opened your lecture slides.",
-				"prompt": "Do you want to join an optional late-night study session?",
-				"yes": {"happiness": -4, "money": 0, "respect": 5, "relationship": 2},
-				"no": {"happiness": 5, "money": 0, "respect": -3, "relationship": -1}
+				"context": "Your best friend wants validation at 2 AM about something extremely unnecessary.",
+				"prompt": "Tell me, should I block him? or forgive him again?",
+				"yes": {"happiness": -3, "money": 0, "respect": 4, "relationship": 5},
+				"no": {"happiness": 1, "money": 0, "respect": -4, "relationship": -3}
 			},
 			{
-				"context": "You still haven’t eaten dinner.",
-				"prompt": "Professor: Can you present your assignment first today?",
-				"yes": {"happiness": -5, "money": 0, "respect": 6, "relationship": 0},
-				"no": {"happiness": -3, "money": 0, "respect": -7, "relationship": 1}
+				"context": "Two of your friends are fighting and you know she's wrong.",
+				"prompt": "You’re on my side, right? You understand me right? Can you defend me?",
+				"yes": {"happiness": -5, "money": 0, "respect": 3, "relationship": 6},
+				"no": {"happiness": 3, "money": 0, "respect": -2, "relationship": -4}
 			}
 		]
 	},
@@ -106,19 +106,19 @@ const tiles := [
 		"scenarios": [
 			{
 				"context": "You just logged off after a chaotic day.",
-				"prompt": "Can you fix one tiny bug before tomorrow?",
+				"prompt": "Can you fix one tiny bug before tomorrow? I have to present it to the client!",
 				"yes": {"happiness": -5, "money": 5, "respect": 5, "relationship": -2},
 				"no": {"happiness": 3, "money": 0, "respect": -4, "relationship": 2}
 			},
 			{
-				"context": "You finally sat down to eat.",
-				"prompt": "Team lead: Can you take this last-minute ticket?",
+				"context": "You finally sat down to eat, and your team lead approached you.",
+				"prompt": "Can you take this last-minute ticket? I have a meeting in 30mins.",
 				"yes": {"happiness": -6, "money": 4, "respect": 4, "relationship": -1},
 				"no": {"happiness": 5, "money": 0, "respect": -5, "relationship": 2}
 			},
 			{
 				"context": "Your coworker keeps making mistakes.",
-				"prompt": "Can you review my work again? You’re faster.",
+				"prompt": "Can you review my work again? It's urgent, need for next week's release.",
 				"yes": {"happiness": -4, "money": 0, "respect": 6, "relationship": 2},
 				"no": {"happiness": 3, "money": 0, "respect": -3, "relationship": -1}
 			}
@@ -129,70 +129,70 @@ const tiles := [
 		"topic": "Parenting",
 		"scenarios": [
 			{
-				"context": "Your youngest just drew on the wall. With permanent marker.",
-				"prompt": "Mommy, can you clean it while I watch?",
-				"yes": {"happiness": -7, "money": 0, "respect": 2, "relationship": 7},
-				"no": {"happiness": -2, "money": 0, "respect": -5, "relationship": -4}
-			},
-			{
-				"context": "You finally got 5 minutes to breathe.",
-				"prompt": "Mom, can you help me put socks on? I don’t want to do it!",
-				"yes": {"happiness": -3, "money": 0, "respect": 2, "relationship": 6},
-				"no": {"happiness": -3, "money": 0, "respect": -4, "relationship": -5}
-			},
-			{
-				"context": "Your child wants attention during your Zoom meeting.",
-				"prompt": "Mommy, can I sit on your lap even if you’re working?",
-				"yes": {"happiness": -2, "money": 0, "respect": 4, "relationship": 9},
+				"context": "The kids were suspiciously quiet for 8 minutes. When you check, they’ve emptied an entire bottle of shampoo on the floor to ‘make ice skating’.",
+				"prompt": "Mommy, can you clean this?",
+				"yes": {"happiness": -10, "money": -4, "respect": 2, "relationship": 8},
 				"no": {"happiness": -4, "money": 0, "respect": -5, "relationship": -6}
+			},
+			{
+				"context": "You finally sat down to eat your first meal of the day and haven’t even taken a bite.",
+				"prompt": "Mom, the dog ate my homework again. Can you make me a new one right now?",
+				"yes": {"happiness": -8, "money": -1, "respect": 4, "relationship": 7},
+				"no": {"happiness": -3, "money": 0, "respect": -3, "relationship": -5}
+			},
+			{
+				"context": "You’re on a serious Zoom meeting with your professor, camera on, full attention required.",
+				"prompt": "MOOOOOM! I clogged the toilet and the water is rising! Come fix it!",
+				"yes": {"happiness": -12, "money": -3, "respect": 3, "relationship": 10},
+				"no": {"happiness": -5, "money": 0, "respect": -6, "relationship": -4}
 			}
 		]
 	},
 
 	{
-		"topic": "Finances",
+		"topic": "Ranting",
 		"scenarios": [
 			{
-				"context": "Your bank app gave you a heart attack this morning.",
-				"prompt": "Do you want to buy the kids a ‘small treat’ today?",
-				"yes": {"happiness": 5, "money": -7, "respect": 2, "relationship": 8},
-				"no": {"happiness": -3, "money": 0, "respect": 1, "relationship": -4}
+				"context": "Your classmate has been complaining nonstop for 40 minutes while you're trying to study.",
+				"prompt": "Everyone in this group is useless except us, right? Do you agree?",
+				"yes": {"happiness": -3, "money": 0, "respect": 6, "relationship": -2},
+				"no": {"happiness": -2, "money": 0, "respect": -4, "relationship": -3}
 			},
 			{
-				"context": "A surprise bill arrived in the mail.",
-				"prompt": "Would you like to set up autopay?",
-				"yes": {"happiness": -5, "money": -6, "respect": 3, "relationship": 0},
-				"no": {"happiness": 2, "money": 0, "respect": -2, "relationship": 0}
+				"context": "Your coworker calls you out of nowhere just to rant about another coworker you barely know.",
+				"prompt": "Honestly, he should be fired already. You think so too, right? Do you agree?",
+				"yes": {"happiness": -4, "money": 0, "respect": 4, "relationship": -1},
+				"no": {"happiness": 2, "money": 0, "respect": -2, "relationship": -2}
 			},
 			{
-				"context": "You’re comparing grocery store prices like a detective.",
-				"prompt": "Want to buy the fancy cereal the kids won’t eat?",
-				"yes": {"happiness": 4, "money": -6, "respect": 1, "relationship": 5},
-				"no": {"happiness": 2, "money": 0, "respect": 1, "relationship": -2}
+				"context": "Your cousin is ranting about their failed relationship for the 8th time this week.",
+				"prompt": "It's totally not my fault they're like that, right? Do you agree?",
+				"yes": {"happiness": -5, "money": 0, "respect": 3, "relationship": 4},
+				"no": {"happiness": 3, "money": 0, "respect": -3, "relationship": -4}
 			}
 		]
 	},
 
 	{
-		"topic": "Self-Care",
+		"topic": "Accusations",
 		"scenarios": [
 			{
-				"context": "You finally have a clean face mask on.",
-				"prompt": "Do you want to answer just ONE more message from your classmate?",
-				"yes": {"happiness": -3, "money": 0, "respect": 3, "relationship": 1},
-				"no": {"happiness": 4, "money": 0, "respect": -2, "relationship": -1}
+				"context": "A drunk relative knocks at your door at midnight, smelling like trouble.",
+				"prompt": "You took my charger, didn’t you? Just admit it. Yes or no?",
+				"yes": {"happiness": -6, "money": 0, "respect": 2, "relationship": 3},
+				"no": {"happiness": -3, "money": 0, "respect": 4, "relationship": -5}
 			},
 			{
-				"context": "You planned a relaxing shower.",
-				"prompt": "Kids: Can we come inside and talk about dinosaurs?",
-				"yes": {"happiness": -4, "money": 0, "respect": 4, "relationship": 8},
-				"no": {"happiness": -2, "money": 0, "respect": -4, "relationship": -6}
+				"context": "Your relative who loses everything blames you again.",
+				"prompt": "You hid my wallet so I wouldn’t go out, right? Yes or no?",
+				"yes": {"happiness": -8, "money": 0, "respect": -2, "relationship": 3},
+				"no": {"happiness": 4, "money": 0, "respect": 5, "relationship": -3}
 			},
 			{
-				"context": "You’re trying to meditate for once.",
-				"prompt": "Husband: Can I ask you something really quick?",
-				"yes": {"happiness": -3, "money": 0, "respect": 4, "relationship": 6},
-				"no": {"happiness": 3, "money": 0, "respect": -3, "relationship": -2}
+				"context": "Your cousin shows up yelling while holding an empty bottle.",
+				"prompt": "You told everyone my secret, didn’t you? Yes or no?",
+				"yes": {"happiness": -7, "money": 0, "respect": -3, "relationship": 2},
+				"no": {"happiness": 2, "money": 0, "respect": 4, "relationship": -4}
 			}
 		]
 	},
