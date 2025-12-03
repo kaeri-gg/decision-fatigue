@@ -1,8 +1,11 @@
 extends Node
 
-func play(sound_name: String) -> void:
-	var player := get_node_or_null(sound_name)
-	if player:
-		player.play()
-	else:
-		print("Sound not found:", sound_name)
+func play(by_name: String, from: float = 0) -> void:
+	var sound: AudioStreamPlayer2D = get_node(by_name)
+	
+	sound.play(from)
+
+func stop(by_name: String) -> void:
+	var sound: AudioStreamPlayer2D = get_node(by_name)
+	
+	sound.stop()

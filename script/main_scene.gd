@@ -24,6 +24,7 @@ var active_scenario: Dictionary = {}
 var active_tile: int = -1
 
 func _ready() -> void:
+	notification_label.text = ""
 	# Initialise the board
 	await utils.fade_in(self)
 	
