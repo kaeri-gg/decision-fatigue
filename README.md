@@ -199,4 +199,5 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 
 ## Credits
 Designed & developed by **_[Kaeri](https://kaeri-gg.github.io/)_** 
-Inspired [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
+
+Inspired by [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
