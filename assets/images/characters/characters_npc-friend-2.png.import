@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfm6awd82ebwj"
-path="res://.godot/imported/characters_npc-relative-male.png-bb400b349c36b09d4a74c8aeca54bf30.ctex"
+uid="uid://sky8ur6b81iu"
+path="res://.godot/imported/characters_npc-friend-2.png-077f631bb13931009fd8f95f54f10d7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/characters_npc-relative-male.png"
-dest_files=["res://.godot/imported/characters_npc-relative-male.png-bb400b349c36b09d4a74c8aeca54bf30.ctex"]
+source_file="res://assets/images/characters/characters_npc-friend-2.png"
+dest_files=["res://.godot/imported/characters_npc-friend-2.png-077f631bb13931009fd8f95f54f10d7f.ctex"]
 
 [params]
 
