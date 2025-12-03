@@ -200,7 +200,8 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 ## Credits
 Designed & developed by **_[Kaeri](https://kaeri-gg.github.io/)_** 
 
-Inspired by [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
-Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/yasumu/springtime License code: HJ88EXRCJSRDDZBU
-Images designed by pch.vector & pikisuperstar / Freepik and modified by **_[Kaeri](https://kaeri-gg.github.io/)_** 
-Sound Effect by <a href="https://pixabay.com/users/u_qpfzpydtro-29496424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">u_qpfzpydtro</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">Pixabay</a>
+- Inspired by [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
+- Images designed by pch.vector & pikisuperstar / Freepik and modified by **_[Kaeri](https://kaeri-gg.github.io/)_** 
+- Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/yasumu/springtime License code: HJ88EXRCJSRDDZBU
+- Sound Effect by <a href="https://pixabay.com/users/u_qpfzpydtro-29496424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">u_qpfzpydtro</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">Pixabay</a>
+- Sound Effect by <a href="https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=402324">DRAGON-STUDIO</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=402324">Pixabay</a>
