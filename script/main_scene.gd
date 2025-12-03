@@ -62,7 +62,12 @@ func on_restart_game_pressed() -> void:
 
 	stats.reset()
 	stats.update_bars(game_state.get_stats())
-
+	notification_label.text =  ""
+	game_over.hide()
+	player_name.show()
+	npc_name.show()
+	await board.fade_in()
+	
 # Called when game_state stats change
 func on_stats_changed(changed_stat: Dictionary, global_stats: Dictionary) -> void:
 	stats.update(changed_stat, global_stats)
