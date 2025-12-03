@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=29 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -12,21 +12,29 @@
 [ext_resource type="Theme" uid="uid://kmw3ccdyrqoo" path="res://themes/mainScene/main_scene_main_dialog_container_bg.tres" id="8_bcnxi"]
 [ext_resource type="Theme" uid="uid://b7x0feiyhulet" path="res://themes/stats/default_stats.tres" id="8_c1pb6"]
 [ext_resource type="Theme" uid="uid://dlaf0w85wvx64" path="res://themes/mainScene/main_scene_money.tres" id="9_k6f3i"]
-[ext_resource type="Theme" uid="uid://b64y7twca0w0t" path="res://themes/mainScene/main_scene_dialog.tres" id="10_e1cbu"]
+[ext_resource type="Theme" uid="uid://s0naq5441qsl" path="res://themes/mainScene/main_scene_main_gameOver_container_bg.tres" id="10_adb74"]
 [ext_resource type="Theme" uid="uid://ovygy2ea0npu" path="res://themes/mainScene/main_scene_dialog_buttons.tres" id="10_mngbo"]
 [ext_resource type="Theme" uid="uid://jaucvvcvy2kv" path="res://themes/mainScene/main_scene_dialog_button_no.tres" id="11_4w45t"]
 [ext_resource type="Theme" uid="uid://bjrm3ufyiq51m" path="res://themes/mainScene/main_scene_dialog_text.tres" id="11_mngbo"]
 [ext_resource type="Theme" uid="uid://ccbo7clw1dlis" path="res://themes/mainScene/main_scene_dialog_player.tres" id="11_r6p65"]
+[ext_resource type="Theme" uid="uid://dixpkv7uplc3v" path="res://themes/mainScene/main_scene_dialog_game_over.tres" id="13_58gk3"]
 [ext_resource type="Theme" uid="uid://d0qi1umlogmpc" path="res://themes/plain_panel.tres" id="14_si52b"]
-[ext_resource type="Texture2D" uid="uid://co81jhk1etw8o" path="res://assets/images/characters/characters_mood-happy.png" id="15_si52b"]
-[ext_resource type="Texture2D" uid="uid://bpgy4d24342nb" path="res://assets/images/characters/characters_npc-relative-female.png" id="16_01n6w"]
+[ext_resource type="Texture2D" uid="uid://b2b0vgmqiybhp" path="res://assets/images/characters/characters_mood-happy.png" id="15_si52b"]
+[ext_resource type="Texture2D" uid="uid://7hqrxbkhl7mn" path="res://assets/images/characters/characters_npc-relative-female.png" id="16_01n6w"]
 [ext_resource type="Script" uid="uid://b7f5and01ukkw" path="res://script/player_mood.gd" id="17_7nt27"]
 [ext_resource type="Script" uid="uid://ibgjfdlkwttd" path="res://script/npc_character.gd" id="19_k6f3i"]
+[ext_resource type="Texture2D" uid="uid://bxt5a8s8bu14v" path="res://assets/images/characters/characters_game-over.png" id="19_to7gp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w45t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adb74"]
+bg_color = Color(0.20871013, 0.20871016, 0.20871004, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58gk3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainScene" type="Control"]
@@ -226,7 +234,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 22
-text = " Notification here. "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -269,7 +276,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
 custom_minimum_size = Vector2(280, 75)
 layout_mode = 2
 mouse_filter = 2
-theme = ExtResource("10_e1cbu")
+theme = ExtResource("13_58gk3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer"]
 layout_mode = 2
@@ -346,7 +353,95 @@ horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="GameOver" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_adb74")
+
+[node name="Image" type="Panel" parent="GameOver"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_adb74")
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/Image"]
+custom_minimum_size = Vector2(850, 550)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -443.0
+offset_top = -553.0
+offset_right = 435.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_58gk3")
+
+[node name="GameOverImage" type="TextureRect" parent="GameOver/Image/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("19_to7gp")
+expand_mode = 2
+
+[node name="NPCContainer" type="PanelContainer" parent="GameOver"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/NPCContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme = ExtResource("8_7nt27")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/NPCContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="GameOver" type="Label" parent="GameOver/NPCContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 25
+text = "You are exhausted, Please rest. Everything will be fine."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="Panel" parent="GameOver/NPCContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="TryAgainGame" type="Button" parent="GameOver/NPCContainer/PanelContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_r6p65")
+text = "Try again"
+
 [node name="Player" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -380,7 +475,8 @@ scale = Vector2(0.36390004, 0.36390004)
 texture = ExtResource("15_si52b")
 script = ExtResource("17_7nt27")
 
-[node name="Label" type="Label" parent="Player"]
+[node name="PlayerName" type="Label" parent="Player"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -399,6 +495,7 @@ text = "Player"
 vertical_alignment = 1
 
 [node name="NPC" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -426,7 +523,8 @@ scale = Vector2(0.35390002, 0.35390002)
 texture = ExtResource("16_01n6w")
 script = ExtResource("19_k6f3i")
 
-[node name="Label2" type="Label" parent="NPC"]
+[node name="NPCName" type="Label" parent="NPC"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0
 offset_top = -73.0
@@ -440,3 +538,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="Buttons/MarginContainer/PanelContainer/ShowBoard" to="." method="on_show_board_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/PanelContainer2/RestartGame" to="." method="on_restart_game_pressed"]
+[connection signal="pressed" from="GameOver/NPCContainer/PanelContainer/VBoxContainer/PanelContainer/TryAgainGame" to="." method="on_restart_game_pressed"]

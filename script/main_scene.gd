@@ -1,9 +1,6 @@
 class_name MainScene
 extends Control
 
-@onready var restart_game: Button = %RestartGame
-@onready var show_board: Button = %ShowBoard
-
 # Progress bars
 @onready var happiness_bar: ProgressBar = %HappinessBar
 @onready var respect_bar: ProgressBar = %RespectBar
@@ -11,9 +8,13 @@ extends Control
 
 # Notification label
 @onready var notification_label: Label = %NotificationLabel
+@onready var player_name: Label = %PlayerName
+@onready var npc_name: Label = %NPCName
 
 @onready var dialog: Dialog = %Dialog
 @onready var stats: Stats = %Stats
+
+@onready var game_over: PanelContainer = %GameOver
 
 const BoardScene: PackedScene = preload("res://scenes/board.tscn")
 const scenarios := preload("res://script/scenarios.gd")
@@ -24,9 +25,10 @@ var active_scenario: Dictionary = {}
 var active_tile: int = -1
 
 func _ready() -> void:
+	game_over.hide()
+	
 	# Initialise the board
 	await utils.fade_in(self)
-	
 	# Add board into current scene
 	add_child(board)
 	board.index_update.connect(on_index_update)
@@ -61,8 +63,11 @@ func on_stats_changed(changed_stat: Dictionary, global_stats: Dictionary) -> voi
 	stats.update(changed_stat, global_stats)
 
 func on_game_over(reason: String) -> void:
+	game_over.show()
+	player_name.hide()
+	npc_name.hide()
+	
 	print("Game Over: ", reason)
-	# TODO: create game over screen
 	if board:
 		await board.fade_out()
 
