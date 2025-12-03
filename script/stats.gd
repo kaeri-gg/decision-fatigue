@@ -46,9 +46,9 @@ func update_relationship(changed_stats: Dictionary) -> void :
 	relationship_point.text = format(changed_stats.get('relationship'), relationship_point)
 
 func update_bars(global_stats: Dictionary) -> void:
-	animated(happiness_bar, global_stats.get('happiness'))
-	animated(respect_bar, global_stats.get('respect'))
-	animated(relationship_bar, global_stats.get('relationship'))
+	animated_progress(happiness_bar, global_stats.get('happiness'))
+	animated_progress(respect_bar, global_stats.get('respect'))
+	animated_progress(relationship_bar, global_stats.get('relationship'))
 
 	money_amount.text = "$" + str(global_stats.get('money'))
 
@@ -64,7 +64,7 @@ func format(text: Variant, label: Label) -> String:
 	return str(text)
 
 # Changes number upto requested value, imitates animation :)
-func animated(bar: ProgressBar, end_value: Variant, duration: float = 1.5) -> void:
+func animated_progress(bar: ProgressBar, end_value: Variant, duration: float = 1.5) -> void:
 	# We dont need to await it, needs to run in parallel
 	create_tween().tween_property(bar, "value", end_value, duration)
 

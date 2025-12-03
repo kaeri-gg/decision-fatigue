@@ -12,38 +12,42 @@ signal no_btn_clicked()
 @onready var npc: NPC = %NPCCharacter
 
 func _ready() -> void:
-	hide()
-	yes_button.pressed.connect(_emit_accept)
-	no_button.pressed.connect(_emit_cancel)
+	self.hide() # Built-in method
+	yes_button.pressed.connect(emit_accept)
+	no_button.pressed.connect(emit_cancel)
 
-func show_dialog(context_text: String, prompt_text: String) -> void:
-	update_content(context_text, prompt_text)
-	await fade_in()
-
-func hide_dialog() -> void:
-	await utils.timeout(1)
-	await fade_out()
-
-func update_content(context_text: String, prompt_text: String) -> void:
-	player_label.text = context_text
-	npc_label.text = prompt_text
-
-func _emit_accept() -> void:
+func emit_accept() -> void:
 	sound_manager.play("Click")
 	yes_btn_clicked.emit()
 	hide_dialog()
 
-func _emit_cancel() -> void:
+func emit_cancel() -> void:
 	sound_manager.play("Click")
 	no_btn_clicked.emit()
 	hide_dialog()
 
+func show_dialog(context_text: String, prompt_text: String) -> void:
+	animated_text(player_label, context_text)
+	animated_text(npc_label, prompt_text)
+	await fade_in()
+
+# Fake animation, we iterate over text char by char
+# Concatenate char with fixed delay
+func animated_text(target: Label, value: String) -> void:
+	for i in range(0, value.length()):
+		target.text += value[i]
+		await utils.timeout(0.03) # 30ms per char
+
+func hide_dialog() -> void:
+	await utils.timeout(1) # Extra delay
+	await fade_out()
+
 func fade_in() -> void:
-	await utils.fade_in(self)
+	utils.fade_in(self)
 	await npc.slide_in()
 	await player.slide_in()
 
 func fade_out() -> void:
-	await utils.fade_out(self)
+	utils.fade_out(self)
 	await npc.slide_out()
 	await player.slide_out()
