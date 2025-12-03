@@ -100,7 +100,6 @@ text = "Start Game"
 script = ExtResource("3_ldg7d")
 
 [node name="AboutContainer" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -117,7 +116,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mw6r2")
 
 [node name="About the game" type="Label" parent="AboutContainer"]
 layout_mode = 2
-text = "About the game"
+text = "https://kaeri-gg.github.io/"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Panel/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="Panel/PanelContainer/MarginContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
