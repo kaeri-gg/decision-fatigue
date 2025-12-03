@@ -16,8 +16,10 @@ func _ready() -> void:
 
 # Modify player stats by modified amounts
 func modify_stats(modified_stats: Dictionary) -> void:
+	# Money can be negative(debt) no clamping with min/max values
+	money = money + modified_stats.get('money')
+	
 	happiness = clamp(happiness + modified_stats.get('happiness'), 0, 100)
-	money = clamp(money + modified_stats.get('money'), 0, 100)
 	respect = clamp(respect + modified_stats.get('respect'), 0, 100)
 	relationship = clamp(relationship + modified_stats.get('relationship'), 0, 100)
 	
@@ -63,7 +65,7 @@ func is_game_over() -> bool:
 # Reset stats to default values
 func reset_stats() -> void:
 	happiness = 20
-	money =  20
+	money = 20
 	respect =  20
 	relationship =  20
 	stats_changed.emit(get_stats())

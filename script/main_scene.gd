@@ -6,7 +6,6 @@ extends Control
 
 # Progress bars
 @onready var happiness_bar: ProgressBar = %HappinessBar
-@onready var money_bar: ProgressBar = %MoneyBar
 @onready var respect_bar: ProgressBar = %RespectBar
 @onready var relationship_bar: ProgressBar = %RelationshipBar
 
@@ -28,6 +27,7 @@ func _ready() -> void:
 	# Initialise the board
 	await utils.fade_in(self)
 	
+	# Add board into current scene
 	add_child(board)
 	board.index_update.connect(on_index_update)
 	await board.fade_in()
@@ -39,6 +39,7 @@ func _ready() -> void:
 	dialog.no_btn_clicked.connect(on_dialog_no)
 	
 	# Initialize UI with current stats
+	stats.reset() # Remove default UI values
 	stats.update_bars(gameState.get_stats())
 
 func on_show_board_pressed() -> void:
