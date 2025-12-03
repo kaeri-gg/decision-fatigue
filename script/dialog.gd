@@ -27,6 +27,8 @@ func emit_cancel() -> void:
 	hide_dialog()
 
 func show_dialog(context_text: String, prompt_text: String) -> void:
+	player_label.text = ""
+	npc_label.text = ""
 	animated_text(player_label, context_text)
 	animated_text(npc_label, prompt_text)
 	await fade_in()
