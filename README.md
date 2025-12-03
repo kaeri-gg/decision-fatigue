@@ -201,3 +201,5 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 Designed & developed by **_[Kaeri](https://kaeri-gg.github.io/)_** 
 
 Inspired by [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
+Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/yasumu/springtime License code: HJ88EXRCJSRDDZBU
+Images designed by pch.vector & pikisuperstar / Freepik and modified by **_[Kaeri](https://kaeri-gg.github.io/)_** 
