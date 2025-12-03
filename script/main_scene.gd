@@ -77,9 +77,13 @@ func on_game_over(reason: String) -> void:
 	player_name.hide()
 	npc_name.hide()
 	
-	print("Game Over: ", reason)
 	if board:
 		await board.fade_out()
+	if game_state.is_win():
+		OS.alert(reason, "Winner")
+	
+	print("Game ended: ", reason, "win: ", game_state.is_win())
+	
 
 func on_index_update(index: int) -> void:
 	if game_state.is_game_over():
