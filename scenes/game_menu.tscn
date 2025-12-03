@@ -36,7 +36,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.8, 0.8)
 theme = ExtResource("2_ysvk1")
 
 [node name="PanelContainer" type="PanelContainer" parent="Panel"]
@@ -83,7 +83,7 @@ layout_mode = 2
 text = "How long  can you stay happy, kind, and sane while
  juggling money, respect, and relationships?
 
- Please don't die."
+ Please don't get yourself exhausted."
 horizontal_alignment = 1
 autowrap_mode = 3
 

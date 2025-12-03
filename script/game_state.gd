@@ -67,5 +67,5 @@ func reset_stats() -> void:
 	happiness = 20
 	money = 20
 	respect =  20
-	relationship =  20
-	stats_changed.emit(get_stats())
+	relationship = 20
+	stats_changed.emit(get_stats(), get_stats())
