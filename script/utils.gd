@@ -27,3 +27,11 @@ func fade_out(node: Control, duration: float = 0.4) -> void:
 	await timeout(duration)
 	# And only then mark it as hidden
 	node.visible = false
+
+func slide_in(node: Sprite2D, to: float, duration: float = 0.4) -> void:
+		# Create Tween instance 
+	var tween: Tween = node.get_tree().create_tween()
+	# Configure animation to change position
+	tween.tween_property(node, "position:x", to, duration)
+	# Wait for the animatin to finish
+	await timeout(duration)

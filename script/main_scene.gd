@@ -83,7 +83,7 @@ func on_index_update(index: int) -> void:
 	var context: String = scenario.get("context", "")
 	var prompt: String = scenario.get("prompt", "")
 	
-	dialog.show_dialog(context, prompt, index)
+	dialog.show_dialog(context, prompt)
 	
 	notification_label.text =  "You landed on tile #" + str(index) + " - " + topic
 
@@ -102,10 +102,10 @@ func pick_scenario_for_tile(index: int) -> Dictionary:
 	
 	return scenario
 
-func on_dialog_yes(_id: int) -> void:
+func on_dialog_yes() -> void:
 	apply_decision("yes")
 
-func on_dialog_no(_id: int) -> void:
+func on_dialog_no() -> void:
 	apply_decision("no")
 
 func apply_decision(yes_or_no: String) -> void:
