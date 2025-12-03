@@ -11,6 +11,8 @@ signal no_btn_clicked()
 @onready var player: Player = %PlayerMood
 @onready var npc: NPC = %NPCCharacter
 
+const typing_delay: float = 0.03 # 30ms
+
 func _ready() -> void:
 	self.hide() # Built-in method
 	yes_button.pressed.connect(emit_accept)
@@ -27,8 +29,11 @@ func emit_cancel() -> void:
 	hide_dialog()
 
 func show_dialog(context_text: String, prompt_text: String) -> void:
-	player_label.text = ""
-	npc_label.text = ""
+	player_label.text = "" # Reset
+	npc_label.text = "" # Reset
+	
+	var characters = max(context_text.length(), prompt_text.length())
+	fake_typing(characters)
 	animated_text(player_label, context_text)
 	animated_text(npc_label, prompt_text)
 	await fade_in()
@@ -38,7 +43,12 @@ func show_dialog(context_text: String, prompt_text: String) -> void:
 func animated_text(target: Label, value: String) -> void:
 	for i in range(0, value.length()):
 		target.text += value[i]
-		await utils.timeout(0.03) # 30ms per char
+		await utils.timeout(typing_delay)
+
+func fake_typing(characters: int) -> void:
+	for i in range(0, characters):
+		sound_manager.play("Typing", 0.025)
+		await utils.timeout(typing_delay)
 
 func hide_dialog() -> void:
 	await utils.timeout(1) # Extra delay

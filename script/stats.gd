@@ -26,12 +26,12 @@ func update(changed_stats: Dictionary, global_stats: Dictionary) -> void:
 	update_respect(changed_stats)
 	update_relationship(changed_stats)
 	
+	if global_stats:
+		update_bars(global_stats)
+	
 	await utils.fade_in(self)
 	await utils.timeout(fade_out_delay)
 	await utils.fade_out(self)
-
-	if global_stats:
-		update_bars(global_stats)
 
 func update_happiness(changed_stats: Dictionary) -> void :
 	happiness_point.text = format(changed_stats.get('happiness'), happiness_point)
@@ -64,7 +64,7 @@ func format(text: Variant, label: Label) -> String:
 	return str(text)
 
 # Changes number upto requested value, imitates animation :)
-func animated_progress(bar: ProgressBar, end_value: Variant, duration: float = 1.5) -> void:
+func animated_progress(bar: ProgressBar, end_value: Variant, duration: float = 1.0) -> void:
 	# We dont need to await it, needs to run in parallel
 	create_tween().tween_property(bar, "value", end_value, duration)
 

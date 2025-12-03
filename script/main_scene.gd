@@ -25,6 +25,7 @@ var active_scenario: Dictionary = {}
 var active_tile: int = -1
 
 func _ready() -> void:
+	notification_label.text = ""
 	game_over.hide()
 	
 	# Initialise the board
@@ -49,6 +50,7 @@ func on_show_board_pressed() -> void:
 	await board.fade_in()
 
 func on_restart_game_pressed() -> void:
+	print("Restart requested")
 	sound_manager.play("Click")
 	if board and board.get_parent():
 		board.reset()
@@ -57,6 +59,9 @@ func on_restart_game_pressed() -> void:
 	game_state.reset_stats()
 	dialog.hide_dialog()
 	clear_active_scenario()
+
+	stats.reset()
+	stats.update_bars(game_state.get_stats())
 
 # Called when game_state stats change
 func on_stats_changed(changed_stat: Dictionary, global_stats: Dictionary) -> void:
