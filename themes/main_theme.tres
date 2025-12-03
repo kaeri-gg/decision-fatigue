@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bylq6dkpla5iv"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bylq6dkpla5iv"]
 
 [ext_resource type="StyleBox" uid="uid://dj1wxm4cqeew0" path="res://themes/button/button_primary_disabled.tres" id="1_7ceur"]
 [ext_resource type="StyleBox" uid="uid://bckkuqk788wjd" path="res://themes/button/button_primary_hover.tres" id="1_8gw6x"]
@@ -8,16 +8,19 @@
 [ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/fonts/DarumadropOne-Regular.ttf" id="3_ydht1"]
 [ext_resource type="StyleBox" uid="uid://depfsmdhaxwd1" path="res://themes/button/button_primary_pressed.tres" id="5_uobgu"]
 
-[sub_resource type="Gradient" id="Gradient_ydht1"]
-colors = PackedColorArray(0.23045874, 0.14139888, 0.5510241, 1, 0.7015128, 0.7800427, 0.9825483, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gw6x"]
-gradient = SubResource("Gradient_ydht1")
-fill_from = Vector2(0.5, 0.88461536)
-fill_to = Vector2(0.53205127, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g21io"]
-texture = SubResource("GradientTexture2D_8gw6x")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uobgu"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.10855686, 0.08495677, 0.20340908, 0.54901963)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.19793734, 0.19793719, 0.19793722, 0.6)
+shadow_size = 10
 
 [resource]
 default_font = ExtResource("3_ydht1")
@@ -27,6 +30,6 @@ Button/styles/focus = ExtResource("2_uobgu")
 Button/styles/hover = ExtResource("1_8gw6x")
 Button/styles/normal = ExtResource("1_ydht1")
 Button/styles/pressed = ExtResource("5_uobgu")
-Panel/styles/panel = SubResource("StyleBoxTexture_g21io")
+Panel/styles/panel = SubResource("StyleBoxFlat_uobgu")
 PanelContainer/styles/panel = ExtResource("2_8gw6x")
 VBoxContainer/constants/separation = 10
