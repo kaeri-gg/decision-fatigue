@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dlaf0w85wvx64"]
+
+[ext_resource type="FontFile" uid="uid://dybi4nv0uhat8" path="res://assets/fonts/DarumadropOne-Regular.ttf" id="1_25gxk"]
+
+[resource]
+default_font = ExtResource("1_25gxk")
+default_font_size = 30
