@@ -3,13 +3,15 @@ extends Node
 
 # Async function to add desired delays between execution lines
 func timeout(delay: float) -> void:
-	await get_tree().create_timer(delay).timeout
+	var timer := get_tree().create_timer(delay)
+	
+	await timer.timeout
 
 # It's like CSS transition for any Node to simulate fade in
 # Equivalent to { transition: opacity 0.4s; }
 func fade_in(node: Control, duration: float = 0.4) -> void:
 	# Create Tween instance 
-	var tween: Tween = node.get_tree().create_tween()
+	var tween: Tween = create_tween()
 	# Same as CSS opacity(Aplha) but godot named it weirdly :|
 	node.modulate.a = 0.0
 	node.visible = true
@@ -20,7 +22,7 @@ func fade_in(node: Control, duration: float = 0.4) -> void:
 	
 func fade_out(node: Control, duration: float = 0.4) -> void:
 	# Create Tween instance 
-	var tween: Tween = node.get_tree().create_tween()
+	var tween: Tween = create_tween()
 	# Configure animation to set an opacity(Alpha) to 0
 	tween.tween_property(node, "modulate:a", 0.0, duration).set_ease(Tween.EASE_IN)
 	# Wait for the animatin to finish
@@ -29,8 +31,8 @@ func fade_out(node: Control, duration: float = 0.4) -> void:
 	node.visible = false
 
 func slide_in(node: Sprite2D, to: float, duration: float = 0.4) -> void:
-		# Create Tween instance 
-	var tween: Tween = node.get_tree().create_tween()
+	# Create Tween instance 
+	var tween: Tween = create_tween()
 	# Configure animation to change position
 	tween.tween_property(node, "position:x", to, duration)
 	# Wait for the animatin to finish
