@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=16 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -114,10 +114,6 @@ theme_override_constants/separation = 3
 layout_mode = 2
 text = "Happiness"
 
-[node name="MoneyLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
-layout_mode = 2
-text = "Money"
-
 [node name="RespectLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
 layout_mode = 2
 text = "Respect"
@@ -126,18 +122,16 @@ text = "Respect"
 layout_mode = 2
 text = "Relationship"
 
+[node name="MoneyLabel" type="Label" parent="StandingContainer/Margin/Grid/Labels"]
+layout_mode = 2
+text = "Money"
+
 [node name="Bars" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="HappinessBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-rounded = true
-
-[node name="MoneyBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -153,6 +147,14 @@ rounded = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+value = 50.0
+rounded = true
+
+[node name="MoneyBar" type="ProgressBar" parent="StandingContainer/Margin/Grid/Bars"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
 rounded = true
 
 [node name="Stats" type="VBoxContainer" parent="StandingContainer/Margin/Grid"]
@@ -167,12 +169,6 @@ layout_mode = 2
 theme = ExtResource("8_c1pb6")
 text = "00"
 
-[node name="MoneyPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("8_c1pb6")
-text = "00"
-
 [node name="RespectPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -180,6 +176,12 @@ theme = ExtResource("8_c1pb6")
 text = "00"
 
 [node name="RelationshipPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_c1pb6")
+text = "00"
+
+[node name="MoneyPoint" type="Label" parent="StandingContainer/Margin/Grid/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("8_c1pb6")
