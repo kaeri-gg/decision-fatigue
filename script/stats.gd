@@ -64,9 +64,9 @@ func format(text: Variant, label: Label) -> String:
 	return str(text)
 
 # Changes number upto requested value, imitates animation :)
-func animated(bar: ProgressBar, value: Variant, duration: float = 1.5) -> void:
+func animated(bar: ProgressBar, end_value: Variant, duration: float = 1.5) -> void:
 	# We dont need to await it, needs to run in parallel
-	create_tween().tween_property(bar, "value", value, duration)
+	create_tween().tween_property(bar, "value", end_value, duration)
 
 func reset() -> void:
 	happiness_point.text = ""

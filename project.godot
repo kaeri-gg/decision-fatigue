@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-gameState="*res://script/game_state.gd"
+game_state="*res://script/game_state.gd"
 utils="*res://script/utils.gd"
+BgMusic="*res://scenes/bg_music.tscn"
+sound_manager="*res://scenes/sound_manager.tscn"
 
 [display]
 

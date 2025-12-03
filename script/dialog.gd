@@ -29,10 +29,12 @@ func update_content(context_text: String, prompt_text: String) -> void:
 	npc_label.text = prompt_text
 
 func _emit_accept() -> void:
+	sound_manager.play("Click")
 	yes_btn_clicked.emit()
 	hide_dialog()
 
 func _emit_cancel() -> void:
+	sound_manager.play("Click")
 	no_btn_clicked.emit()
 	hide_dialog()
 

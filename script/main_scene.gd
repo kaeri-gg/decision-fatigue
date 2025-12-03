@@ -32,29 +32,31 @@ func _ready() -> void:
 	board.index_update.connect(on_index_update)
 	await board.fade_in()
 	
-	# Connect to gameState and dialog signals
-	gameState.stats_changed.connect(on_stats_changed)
-	gameState.game_over.connect(on_game_over)
+	# Connect to game_state and dialog signals
+	game_state.stats_changed.connect(on_stats_changed)
+	game_state.game_over.connect(on_game_over)
 	dialog.yes_btn_clicked.connect(on_dialog_yes)
 	dialog.no_btn_clicked.connect(on_dialog_no)
 	
 	# Initialize UI with current stats
 	stats.reset() # Remove default UI values
-	stats.update_bars(gameState.get_stats())
+	stats.update_bars(game_state.get_stats())
 
 func on_show_board_pressed() -> void:
+	sound_manager.play("Click")
 	await board.fade_in()
 
 func on_restart_game_pressed() -> void:
+	sound_manager.play("Click")
 	if board and board.get_parent():
 		board.reset()
 		
 	# Reset game state
-	gameState.reset_stats()
+	game_state.reset_stats()
 	dialog.hide_dialog()
 	clear_active_scenario()
 
-# Called when GameState stats change
+# Called when game_state stats change
 func on_stats_changed(changed_stat: Dictionary, global_stats: Dictionary) -> void:
 	stats.update(changed_stat, global_stats)
 
@@ -65,7 +67,7 @@ func on_game_over(reason: String) -> void:
 		await board.fade_out()
 
 func on_index_update(index: int) -> void:
-	if gameState.is_game_over():
+	if game_state.is_game_over():
 		return
 	
 	var scenario: Dictionary = pick_scenario_for_tile(index)
@@ -115,7 +117,7 @@ func apply_decision(yes_or_no: String) -> void:
 	
 	await board.fade_in()
 	var answer_stats: Dictionary = active_scenario.get(yes_or_no)
-	gameState.modify_stats(answer_stats)
+	game_state.modify_stats(answer_stats)
 	
 	clear_active_scenario()
 

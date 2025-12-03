@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene load_steps=28 format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://bpgy4d24342nb" path="res://assets/images/characters/characters_npc-relative-female.png" id="16_01n6w"]
 [ext_resource type="Script" uid="uid://b7f5and01ukkw" path="res://script/player_mood.gd" id="17_7nt27"]
 [ext_resource type="Script" uid="uid://ibgjfdlkwttd" path="res://script/npc_character.gd" id="19_k6f3i"]
+[ext_resource type="Script" uid="uid://bnwui7unqawma" path="res://script/music_control.gd" id="23_58gk3"]
+[ext_resource type="AudioStream" uid="uid://cuawyqws6megt" path="res://assets/sounds/click.mp3" id="24_to7gp"]
+[ext_resource type="AudioStream" uid="uid://c8wean8uwoae6" path="res://assets/sounds/dice.mp3" id="25_u0fll"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt2n2"]
 texture = ExtResource("3_gubc5")
@@ -437,6 +440,23 @@ theme_override_font_sizes/font_size = 30
 text = "NPC"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="MusicControl" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("23_58gk3")
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="MusicControl"]
+unique_name_in_owner = true
+stream = ExtResource("24_to7gp")
+bus = &"SFx"
+
+[node name="DiceRollSFX" type="AudioStreamPlayer2D" parent="MusicControl"]
+unique_name_in_owner = true
+stream = ExtResource("25_u0fll")
+bus = &"SFx"
 
 [connection signal="pressed" from="Buttons/MarginContainer/PanelContainer/ShowBoard" to="." method="on_show_board_pressed"]
 [connection signal="pressed" from="Buttons/MarginContainer/PanelContainer2/RestartGame" to="." method="on_restart_game_pressed"]

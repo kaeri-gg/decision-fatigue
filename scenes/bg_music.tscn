@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://3v8jo4j6ugak"]
+
+[ext_resource type="AudioStream" uid="uid://bnry0gpmkt3ob" path="res://assets/sounds/springtime-yasumu-main-version-27867-02-32.mp3" id="1_f6gl3"]
+
+[node name="BGMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_f6gl3")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

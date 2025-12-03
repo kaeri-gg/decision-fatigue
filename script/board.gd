@@ -20,6 +20,8 @@ func on_roll_btn_pressed() -> void:
 	roll_button.disabled = false
 
 func handle_dice_roll() -> void:
+	
+	sound_manager.play("Roll")
 	var value = await dice.roll(1.0)
 	
 	var old_index: int = index

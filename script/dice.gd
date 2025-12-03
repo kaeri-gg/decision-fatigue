@@ -35,6 +35,7 @@ func _process(_delta: float) -> void:
 
 # @Public, meant to be called in other scrips
 func roll(roll_time_sec: float) -> int:
+	sound_manager.play("Click")
 	is_rolling = true
 
 	var rolling_tween: Tween = create_tween()

@@ -55,7 +55,8 @@ func unhighlight_by(idx: int) -> void:
 func animate_by(idx: int) -> void:
 	# Apply highlighted style
 	highlight_by(idx)
-
+	sound_manager.play("Pop")
+	
 	# Keep remainder only from index
 	var tile: Button = get_tile_by(idx)
 	
