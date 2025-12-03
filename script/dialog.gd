@@ -11,7 +11,7 @@ signal no_btn_clicked()
 @onready var player: Player = %PlayerMood
 @onready var npc: NPC = %NPCCharacter
 
-const typing_delay:float = 0.03 # 30ms
+const typing_delay: float = 0.03 # 30ms
 
 func _ready() -> void:
 	self.hide() # Built-in method
