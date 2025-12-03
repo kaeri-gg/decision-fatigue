@@ -51,7 +51,7 @@ func check_game_over() -> void:
 		game_over.emit("Perfect balance! You mastered life!")
 
 func is_win() -> bool:
-	return happiness >= 100 or money >= 100 or respect >= 100 or relationship >= 100
+	return happiness >= 100 or respect >= 100 or relationship >= 100
 
 func is_lose() -> bool:
 	return happiness <= 0 or money <= 0 or respect <= 0 or relationship <= 0
@@ -62,8 +62,8 @@ func is_game_over() -> bool:
 
 # Reset stats to default values
 func reset_stats() -> void:
-	happiness = randi_range(25, 50)
-	money =  randi_range(25, 50)
-	respect =  randi_range(25, 50)
-	relationship =  randi_range(25, 50)
+	happiness = 20
+	money =  20
+	respect =  20
+	relationship =  20
 	stats_changed.emit(get_stats())

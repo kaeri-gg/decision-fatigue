@@ -17,7 +17,7 @@ extends Control
 @onready var stats: Stats = %Stats
 
 const BoardScene: PackedScene = preload("res://scenes/board.tscn")
-const scenarios = preload("res://script/scenarios.gd")
+const scenarios := preload("res://script/scenarios.gd")
 
 # Class defined in board.gd, global type
 var board: Board = BoardScene.instantiate()

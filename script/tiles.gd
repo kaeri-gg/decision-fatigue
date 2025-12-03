@@ -21,11 +21,10 @@ const NORMAL = preload("res://themes/button/normal.tres")
 @onready var button_14: Button = %Button14
 @onready var button_15: Button = %Button15
 
-var tiles_count: int = 0
-var idx_to_btns: Array[Button]
+var tiles: Array[Button]
 
 func _ready() -> void:
-	idx_to_btns = [
+	tiles = [
 		button_0,
 		button_1,
 		button_2,
@@ -43,7 +42,6 @@ func _ready() -> void:
 		button_14,
 		button_15
 	]
-	tiles_count = idx_to_btns.size()
 
 func highlight_by(idx: int) -> void:
 	var tile: Button = get_tile_by(idx)
@@ -61,8 +59,8 @@ func animate_by(idx: int) -> void:
 	# Keep remainder only from index
 	var tile: Button = get_tile_by(idx)
 	
-	var w: float = tile.size.x / 4
-	var h: float = tile.size.y / 4
+	var w: float = tile.size.x / 4 # 25% of width
+	var h: float = tile.size.y / 4 # 25% of height
 	var x: float = tile.position.x
 	var y: float = tile.position.y
 	
@@ -82,16 +80,18 @@ func animate_by(idx: int) -> void:
 	scale_tween.tween_property(tile, "scale", scale_start, speed)
 	scale_tween.tween_property(tile, "scale", scale_end, speed)
 	
+	# Wait for both animations to finish
 	await utils.timeout(speed * 2)
 	# Reset style
 	unhighlight_by(idx)
 
-# Gets modular(reminder) part of index, to make sure array index does not overflow
+# Gets modular(reminder) part of index,
+# to make sure array index does not overflow
 func get_tile_index(idx: int) -> int:
-	return idx % tiles_count
+	return idx % tiles.size()
 
 func get_tile_by(idx: int) -> Button:
 	# Normalized index
 	var index: int = get_tile_index(idx)
 	# Rreturn tile from already mapped tiles array
-	return idx_to_btns[index]
+	return tiles[index]

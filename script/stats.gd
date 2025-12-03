@@ -15,7 +15,7 @@ const GAINED_STATS = preload("res://themes/stats/gained_stats.tres")
 const REDUCED_STATS = preload("res://themes/stats/reduced_stats.tres")
 const DEFAULT_STATS = preload("res://themes/stats/default_stats.tres")
 
-const delay : int = 7
+const fade_out_delay : int = 7
 
 func update(changed_stats: Dictionary, global_stats: Dictionary) -> void:
 	update_happiness(changed_stats)
@@ -24,7 +24,7 @@ func update(changed_stats: Dictionary, global_stats: Dictionary) -> void:
 	update_relationship(changed_stats)
 	
 	await utils.fade_in(self)
-	await utils.timeout(delay)
+	await utils.timeout(fade_out_delay)
 	await utils.fade_out(self)
 	
 	update_bars(global_stats)
@@ -51,9 +51,10 @@ func format(text: Variant, label: Label) -> String:
 	if int(text) > 0:
 		label.set_theme(GAINED_STATS)
 		return "+" + str(text)
-	elif int(text) == 0:
-		label.set_theme(DEFAULT_STATS)
-		return "+" + str(text)
+	elif int(text) < 0:
+		label.set_theme(REDUCED_STATS)	
+		return str(text)
 	
-	label.set_theme(REDUCED_STATS)	
+	label.set_theme(DEFAULT_STATS)
 	return str(text)
+	
