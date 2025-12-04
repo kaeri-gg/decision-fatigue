@@ -2,6 +2,8 @@
 
 A board-style life simulator about the tiny choices that slowly eat your soul.
 
+Click here to [play online](https://kaeri-gg.github.io/decision-fatigue/release)
+
 Modern adulthood is collapsing under the weight of constant choices: bills, kids, work deadlines, unstable relatives, and the emotional gymnastics of trying to stay “nice” while slowly burning out. Most people don’t realize how much these small, daily decisions drain their mental battery, until it’s empty.
 
 Decision Fatigue turns this modern struggle into a playful, chaotic life simulator.
