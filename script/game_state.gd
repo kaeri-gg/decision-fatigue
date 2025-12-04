@@ -53,7 +53,7 @@ func check_game_finish() -> void:
 		game_finish.emit("You win but, this is not actually something that measures happiness in real life. Thank you for trying to stay kind and have a balance in your life!")
 
 func is_win() -> bool:
-	return happiness >= 80 or respect >= 80 or relationship >= 80
+	return happiness >= 95 or respect >= 95 or relationship >= 95
 
 func is_lose() -> bool:
 	return happiness <= 0 or money <= 0 or respect <= 0 or relationship <= 0
