@@ -5,18 +5,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgibm"]
 bg_color = Color(0.14586782, 0.14586785, 0.1458678, 0.23529412)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jryel"]
 bg_color = Color(0.9137255, 0.3529412, 0.52156866, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 5
 
 [resource]
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.4509804)

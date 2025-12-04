@@ -28,8 +28,9 @@ func _ready() -> void:
 	notification_label.text = ""
 	game_over.hide()
 	
-	# Initialise the board
+	# animate scene
 	await utils.fade_in(self)
+	
 	# Add board into current scene
 	add_child(board)
 	board.index_update.connect(on_index_update)
@@ -37,7 +38,7 @@ func _ready() -> void:
 	
 	# Connect to game_state and dialog signals
 	game_state.stats_changed.connect(on_stats_changed)
-	game_state.game_over.connect(on_game_over)
+	game_state.game_finish.connect(on_game_finish)
 	dialog.yes_btn_clicked.connect(on_dialog_yes)
 	dialog.no_btn_clicked.connect(on_dialog_no)
 	
@@ -62,6 +63,7 @@ func on_restart_game_pressed() -> void:
 
 	stats.reset()
 	stats.update_bars(game_state.get_stats())
+	
 	notification_label.text =  ""
 	game_over.hide()
 	player_name.show()
@@ -72,21 +74,23 @@ func on_restart_game_pressed() -> void:
 func on_stats_changed(changed_stat: Dictionary, global_stats: Dictionary) -> void:
 	stats.update(changed_stat, global_stats)
 
-func on_game_over(reason: String) -> void:
-	game_over.show()
+func on_game_finish(reason: String) -> void:
 	player_name.hide()
 	npc_name.hide()
 	
 	if board:
 		await board.fade_out()
+
 	if game_state.is_win():
 		OS.alert(reason, "Winner")
+	else:
+		game_over.show()
 	
 	print("Game ended: ", reason, "win: ", game_state.is_win())
 	
 
 func on_index_update(index: int) -> void:
-	if game_state.is_game_over():
+	if game_state.is_game_finish():
 		return
 	
 	var scenario: Dictionary = pick_scenario_for_tile(index)
@@ -110,16 +114,13 @@ func on_index_update(index: int) -> void:
 	notification_label.text =  "You landed on tile #" + str(index) + " - " + topic
 
 func pick_scenario_for_tile(index: int) -> Dictionary:
-	if not scenarios.tiles.get(index):
-		return {}
-
 	var data: Dictionary = scenarios.tiles.get(index)
 	var options: Array = data.get("scenarios", [])
-	if options.is_empty():
-		return {}
 
-	var scenario: Dictionary = options[randi() % options.size()].duplicate()
-	# Carry topic info forward for UI, we add additional property to scenario
+	var random_scenario_id: int = randi_range(0, options.size() - 1) # scenario options is 3, sp option size is 3, so i need to -1 (for out of bounds)
+	var scenario: Dictionary = options[random_scenario_id].duplicate()
+	
+	# Adds key value "topic" to scenario option
 	scenario["topic"] = data.get("topic", "")
 	
 	return scenario

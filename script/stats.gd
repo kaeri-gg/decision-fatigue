@@ -19,6 +19,10 @@ const fade_out_delay : int = 7
 
 func _ready() -> void:
 	money_amount.text = ""
+	
+	happiness_bar.value = 0
+	respect_bar.value = 0
+	relationship_bar.value = 0
 
 func update(changed_stats: Dictionary, global_stats: Dictionary) -> void:
 	update_happiness(changed_stats)
@@ -65,7 +69,6 @@ func format(text: Variant, label: Label) -> String:
 
 # Changes number upto requested value, imitates animation :)
 func animated_progress(bar: ProgressBar, end_value: Variant, duration: float = 1.0) -> void:
-	# We dont need to await it, needs to run in parallel
 	create_tween().tween_property(bar, "value", end_value, duration)
 
 func reset() -> void:

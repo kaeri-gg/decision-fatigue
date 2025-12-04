@@ -3,7 +3,7 @@ extends Sprite2D
 
 @onready var npc_character: NPC = %NPCCharacter
 
-const OFFSET = 400
+const OFFSET: int = 400
 var animateToPositionX: float
 var animateFromPositionX: float
 

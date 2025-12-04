@@ -86,7 +86,7 @@ func animate_by(idx: int) -> void:
 	# Reset style
 	unhighlight_by(idx)
 
-# Gets modular(reminder) part of index,
+# Gets reminder part of index,
 # to make sure array index does not overflow
 func get_tile_index(idx: int) -> int:
 	return idx % tiles.size()

@@ -3,7 +3,7 @@ extends Node
 
 # Signals emitted when stats change
 signal stats_changed(changed_stat: Dictionary, global_stats: Dictionary)
-signal game_over(reason: String)
+signal game_finish(reason: String)
 
 var happiness: int = 0
 var money: int = 0
@@ -13,6 +13,15 @@ var relationship: int = 0
 func _ready() -> void:
 	reset_stats()
 	print("Game state initialized.")
+	
+# Get current stats as a dictionary
+func get_stats() -> Dictionary:
+	return {
+		"happiness": happiness,
+		"money": money,
+		"respect": respect,
+		"relationship": relationship
+	}
 
 # Modify player stats by modified amounts
 func modify_stats(modified_stats: Dictionary) -> void:
@@ -27,39 +36,30 @@ func modify_stats(modified_stats: Dictionary) -> void:
 	stats_changed.emit(modified_stats, get_stats())
 	
 	# Check if game is over
-	check_game_over()
-
-# Get current stats as a dictionary
-func get_stats() -> Dictionary:
-	return {
-		"happiness": happiness,
-		"money": money,
-		"respect": respect,
-		"relationship": relationship
-	}
+	check_game_finish()
 
 # Check if game is over (any stat at 0 or all at 100)
-func check_game_over() -> void:
+func check_game_finish() -> void:
 	# Lose condition: any stat reaches 0
 	if happiness <= 0:
-		game_over.emit("You became too unhappy and gave up.")
+		game_finish.emit("You became too unhappy and gave up.")
 	elif money <= 0:
-		game_over.emit("You went broke and can't continue.")
+		game_finish.emit("You went broke and can't continue.")
 	elif respect <= 0:
-		game_over.emit("You lost all respect and were ostracized.")
+		game_finish.emit("You lost all respect and were ostracized.")
 	elif relationship <= 0:
-		game_over.emit("All your relationships fell apart.")
+		game_finish.emit("All your relationships fell apart.")
 	elif is_win():
-		game_over.emit("Perfect balance! You mastered life!")
+		game_finish.emit("You win but, this is not actually something that measures happiness in real life. Thank you for trying to stay kind and have a balance in your life!")
 
 func is_win() -> bool:
-	return happiness >= 100 or respect >= 100 or relationship >= 100
+	return happiness >= 80 or respect >= 80 or relationship >= 80
 
 func is_lose() -> bool:
 	return happiness <= 0 or money <= 0 or respect <= 0 or relationship <= 0
 
 # Check if game is currently over
-func is_game_over() -> bool:
+func is_game_finish() -> bool:
 	return is_win() or is_lose()
 
 # Reset stats to default values

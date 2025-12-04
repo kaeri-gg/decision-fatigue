@@ -9,11 +9,11 @@ signal index_update(index: int)
 
 const BoardScene: PackedScene = preload("res://scenes/board.tscn")
 
-var index: int = 0
+var index: int = 0 # Index of my tiles
 
 func on_roll_btn_pressed() -> void:
 	if dice.is_rolling: 
-		return
+		return # Do nothing! already rolling and keep disabling the button
 
 	roll_button.disabled = true
 	await handle_dice_roll()
@@ -22,14 +22,14 @@ func on_roll_btn_pressed() -> void:
 func handle_dice_roll() -> void:
 	
 	sound_manager.play("Roll")
-	var value = await dice.roll(1.0)
+	var dice_value = await dice.roll(1.0) 
 	
 	var old_index: int = index
-	index += value # update index
+	index += dice_value # update index
 	var new_index: int = index
 	
 	await animate(old_index, new_index)
-	await utils.timeout(1.5)
+	await utils.timeout(1.0) # Delay for u to see which tile u landed 
 	
 	index = tiles.get_tile_index(new_index)
 	index_update.emit(index)
@@ -38,11 +38,11 @@ func handle_dice_roll() -> void:
 func animate(from, to) -> void:
 	# Function range(from, to); 
 	# 'from' is inclusive
-	# 'to' is not inclusive; we add 1
-	for idx in range(from , to + 1):
+	# 'to' is not inclusive; we add 1 to animate last index
+	for idx in range(from, to + 1):
 		await tiles.animate_by(idx)
 	
-	tiles.highlight_by(to)
+	tiles.highlight_by(to) # Keeps the index highlighted
 
 # Unhighlights last highlighted tile and resets the index
 func reset() -> void:

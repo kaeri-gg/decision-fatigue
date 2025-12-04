@@ -3,7 +3,7 @@ extends Sprite2D
 
 @onready var player_mood: Player = %PlayerMood
 
-const OFFSET = 400
+const OFFSET: int = 400
 var animateToPositionX: float
 var animateFromPositionX: float
 

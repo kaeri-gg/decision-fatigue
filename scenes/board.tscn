@@ -274,12 +274,12 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 40
 
-[node name="CenterContainer" type="Control" parent="DiceContainer/VBoxContainer"]
+[node name="DiceBlock" type="Control" parent="DiceContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Dice" type="TextureRect" parent="DiceContainer/VBoxContainer/CenterContainer"]
+[node name="Dice" type="TextureRect" parent="DiceContainer/VBoxContainer/DiceBlock"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
