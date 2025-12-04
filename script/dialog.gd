@@ -28,10 +28,10 @@ func emit_cancel() -> void:
 	no_btn_clicked.emit()
 	hide_dialog()
 
-func show_dialog(context_text: String, prompt_text: String) -> void:
+func show_dialog(context_text: String, prompt_text: String, topic: String) -> void:
 	player_label.text = "" # Reset
 	npc_label.text = "" # Reset
-	
+	npc.update_character_by(topic)
 	var characters = max(context_text.length(), prompt_text.length())
 	fake_typing(characters)
 	animated_text(player_label, context_text)

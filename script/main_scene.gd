@@ -105,7 +105,8 @@ func on_index_update(index: int) -> void:
 	var context: String = scenario.get("context", "")
 	var prompt: String = scenario.get("prompt", "")
 	
-	dialog.show_dialog(context, prompt)
+	dialog.show_dialog(context, prompt, topic)
+	
 	
 	notification_label.text =  "You landed on tile #" + str(index) + " - " + topic
 

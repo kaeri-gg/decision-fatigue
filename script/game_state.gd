@@ -64,8 +64,8 @@ func is_game_over() -> bool:
 
 # Reset stats to default values
 func reset_stats() -> void:
-	happiness = 20
-	money = 20
-	respect =  20
-	relationship =  20
+	happiness = 50
+	money = 50
+	respect =  50
+	relationship =  50
 	stats_changed.emit(get_stats())
