@@ -107,7 +107,6 @@ func on_index_update(index: int) -> void:
 	
 	dialog.show_dialog(context, prompt, topic)
 	
-	
 	notification_label.text =  "You landed on tile #" + str(index) + " - " + topic
 
 func pick_scenario_for_tile(index: int) -> Dictionary:

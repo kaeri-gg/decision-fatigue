@@ -6,7 +6,12 @@ extends Sprite2D
 const OFFSET = 400
 var animateToPositionX: float
 var animateFromPositionX: float
-var characters: Dictionary[String, Resource]
+
+var mood_happy: Resource
+var mood_neutral: Resource
+var mood_stress: Resource
+var mood_annoyed: Resource
+var mood_sad: Resource
 
 func _ready() -> void:
 	animateToPositionX = self.position.x
@@ -15,30 +20,26 @@ func _ready() -> void:
 	# Just update with no animation, set on the right hidden
 	self.position.x = animateFromPositionX
 	
-	characters = {
-		"Family": load("res://assets/images/characters/characters_npc-relative-male.png"),
-		"Relatives": load("res://assets/images/characters/characters_npc-relative-female.png"),
-		"Neighbors": load("res://assets/images/characters/characters_npc-neighbor-07.png"),
-		"Friends' Drama": load("res://assets/images/characters/characters_npc-friend-2.png"),
-		"Work": load("res://assets/images/characters/characters_npc-work-2.png"),
-		"Parenting": load("res://assets/images/characters/characters_npc-kid-2.png"),
-		"Ranting": load("res://assets/images/characters/characters_npc-friend.png"),
-		"Accusations": load("res://assets/images/characters/characters_npc-work.png"),
-		"Household": load("res://assets/images/characters/characters_npc-neighbor-12.png"),
-		"Health": load("res://assets/images/characters/characters_npc-work.png"),
-		"In-Laws": load("res://assets/images/characters/characters_npc-neighbor-07.png"),
-		"Random Emergencies": load("res://assets/images/characters/characters_npc-neighbor.png"),
-		"Transportation": load("res://assets/images/characters/characters_npc-work.png"),
-		"Social Obligations": load("res://assets/images/characters/characters_npc-neighbor-07.png"),
-		"Chores": load("res://assets/images/characters/characters_npc-kid-2.png"),
-		"Personal Development": load("res://assets/images/characters/characters_npc-work.png"),
-	}
+	mood_happy = load("res://assets/images/characters/characters_mood-happy.png")
+	mood_annoyed = load("res://assets/images/characters/characters_mood-annoyed.png")
+	mood_neutral = load("res://assets/images/characters/characters_mood-neutral.png")
+	mood_stress = load("res://assets/images/characters/characters_mood-stress.png")
+	mood_sad = load("res://assets/images/characters/characters_mood-sad.png")
 
-func update_character_by(topic: String) -> void:
-	player_mood.texture = characters.get(topic)
+func update_mood_by(happiness: int) -> void:
+	player_mood.texture = mood_happy
+	
+	if happiness <= 50:
+		player_mood.texture = mood_neutral
+	if happiness <= 42:
+		player_mood.texture = mood_annoyed
+	if happiness <= 35:
+		player_mood.texture = mood_sad
+	if happiness <= 15:
+		player_mood.texture = mood_stress
 
 func slide_in():
-	await utils.slide_in_x(self, animateToPositionX)
+	await utils.slide_in(self, animateToPositionX)
 
 func slide_out():
-	await utils.slide_in_x(self, animateFromPositionX)
+	await utils.slide_in(self, animateFromPositionX)

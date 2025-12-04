@@ -39,7 +39,7 @@ func update_character_by(topic: String) -> void:
 	npc_character.texture = characters.get(topic)
 
 func slide_in():
-	await utils.slide_in_x(self, animateToPositionX)
+	await utils.slide_in(self, animateToPositionX)
 
 func slide_out():
-	await utils.slide_in_x(self, animateFromPositionX)
+	await utils.slide_in(self, animateFromPositionX)
