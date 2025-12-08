@@ -18,11 +18,11 @@ Decision Fatigue is a single-player board-style life simulator where the player 
 
 - **Happiness**
 
-- **Money**
-
 - **Respect**
 
 - **Relationships**
+
+- **Money**
 
 **The goal is simple:**
 survive multiple “spins of life” with your sanity, dignity, wallet, and social circle still intact.
@@ -67,11 +67,12 @@ The board becomes a living diary of how much you can handle before your brain sa
 ## Future Improvements
 1. **NPC Dialogue Reactivity**  - NPC reactions change based on your choices. If you keep saying “yes,” they’ll guilt-trip you: _**“Wow… I thought you were a good person.”**_
 2. **Random Life Events** - Unexpected crises—like a sudden loss, an accident, or a hospital bill—appear without needing player input and create drastic standing changes.
-3. **Standing-Based Event System** - Your stats unlock new problems (just like real life):
+3. **Standing-Based Event System** - (suggested by our amazing professor in Tallinn University, Leonardo Sorrentino) Your stats unlock new problems (just like real life):
    * _High money_ → people ask you for favors more
    * _Low happiness_ → meltdown scenarios unlock
    * _High respect_ → heavier responsibilities
 4. UI & Scenario Expansion - More dilemmas, refined tile layouts, cleaner UI, richer emotional storytelling.
+5. The story has the option to keep going even if the player is exhausted. Keeping the game will make the game wins. (Suggested by my dear classmate, Luija Sun!)
 
 ## Features
 
@@ -200,11 +201,11 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out c
 **Deployment Status:** Check the **Actions** tab for deployment progress and any errors.
 
 ## Credits
-Designed & developed by **_[Kaeri](https://kaeri-gg.github.io/)_** 
+Designed & developed by _**_[Kaeri](https://kaeri-gg.github.io/)_** _
 
 - Inspired by [Sort the Court](https://graebor.itch.io/sort-the-court), Monopoly and by real-life stress, chaotic relatives, loud neighbors, and the universal struggle of being “the responsible one.”
-- Images designed by pch.vector & pikisuperstar / Freepik and modified by **_[Kaeri](https://kaeri-gg.github.io/)_** 
-- Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/yasumu/springtime License code: HJ88EXRCJSRDDZBU
+- Images designed by pch.vector & pikisuperstar / Freepik, and re-designed by _**_[Kaeri](https://kaeri-gg.github.io/)_** _
+- Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/yasumu/springtime, license code: HJ88EXRCJSRDDZBU
 - Sound Effect by <a href="https://pixabay.com/users/u_qpfzpydtro-29496424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">u_qpfzpydtro</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142528">Pixabay</a>
 - Sound Effect by <a href="https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=402324">DRAGON-STUDIO</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=402324">Pixabay</a>
 - Sound Effect by <a href="https://pixabay.com/users/justsomesounds-53130806/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=432501">JustSomeSounds</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=432501">Pixabay</a>
