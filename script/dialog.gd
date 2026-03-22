@@ -35,8 +35,8 @@ func show_dialog(context_text: String, prompt_text: String, topic: String) -> vo
 	player.update_mood_by(game_state.happiness)
 	var characters = max(context_text.length(), prompt_text.length())
 	fake_typing(characters)
-	animated_text(player_label, context_text)
 	animated_text(npc_label, prompt_text)
+	animated_text(player_label, context_text)
 	await fade_in()
 
 # Fake animation, we iterate over text char by char

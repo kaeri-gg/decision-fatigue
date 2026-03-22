@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d5okkui18aqe"]
+[gd_scene format=3 uid="uid://d5okkui18aqe"]
 
 [ext_resource type="Theme" uid="uid://34cudcxt62mq" path="res://themes/text_theme.tres" id="1_rt2n2"]
 [ext_resource type="Script" uid="uid://hogpt87su1iu" path="res://script/main_scene.gd" id="2_pw63i"]
@@ -37,7 +37,7 @@ bg_color = Color(0.20871013, 0.20871016, 0.20871004, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58gk3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="MainScene" type="Control"]
+[node name="MainScene" type="Control" unique_id=1182865129]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +47,7 @@ grow_vertical = 2
 theme = ExtResource("1_rt2n2")
 script = ExtResource("2_pw63i")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=127696217]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,14 +56,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rt2n2")
 
-[node name="Buttons" type="Panel" parent="."]
+[node name="Buttons" type="Panel" parent="." unique_id=332177650]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 theme = ExtResource("4_4w45t")
 
-[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=478552816]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -75,29 +75,29 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="Buttons/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Buttons/MarginContainer" unique_id=1398064151]
 custom_minimum_size = Vector2(140, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="ShowBoard" type="Button" parent="Buttons/MarginContainer/PanelContainer"]
+[node name="ShowBoard" type="Button" parent="Buttons/MarginContainer/PanelContainer" unique_id=2005870621]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Show board"
 
-[node name="PanelContainer2" type="PanelContainer" parent="Buttons/MarginContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="Buttons/MarginContainer" unique_id=119288543]
 custom_minimum_size = Vector2(140, 70)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="RestartGame" type="Button" parent="Buttons/MarginContainer/PanelContainer2"]
+[node name="RestartGame" type="Button" parent="Buttons/MarginContainer/PanelContainer2" unique_id=230241683]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Restart"
 
-[node name="StandingContainer" type="PanelContainer" parent="."]
+[node name="StandingContainer" type="PanelContainer" parent="." unique_id=270146308]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 1
 anchors_preset = 13
@@ -111,10 +111,10 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("4_4w45t")
 
-[node name="StandingAndNotification" type="VBoxContainer" parent="StandingContainer"]
+[node name="StandingAndNotification" type="VBoxContainer" parent="StandingContainer" unique_id=1224433611]
 layout_mode = 2
 
-[node name="Standing" type="MarginContainer" parent="StandingContainer/StandingAndNotification"]
+[node name="Standing" type="MarginContainer" parent="StandingContainer/StandingAndNotification" unique_id=1764292654]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -123,111 +123,111 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Grid" type="GridContainer" parent="StandingContainer/StandingAndNotification/Standing"]
+[node name="Grid" type="GridContainer" parent="StandingContainer/StandingAndNotification/Standing" unique_id=666261660]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 13
 columns = 3
 
-[node name="Labels" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid"]
+[node name="Labels" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid" unique_id=36400730]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="HappinessLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels"]
+[node name="HappinessLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels" unique_id=1446266767]
 layout_mode = 2
 text = "Happiness"
 
-[node name="RespectLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels"]
+[node name="RespectLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels" unique_id=1383214963]
 layout_mode = 2
 text = "Respect"
 
-[node name="RelationshipLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels"]
+[node name="RelationshipLabel" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Labels" unique_id=2012982051]
 layout_mode = 2
 text = "Relationship"
 
-[node name="Bars" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid"]
+[node name="Bars" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid" unique_id=660356142]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="HappinessBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars"]
+[node name="HappinessBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars" unique_id=821264404]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="RespectBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars"]
+[node name="RespectBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars" unique_id=1973846565]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="RelationshipBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars"]
+[node name="RelationshipBar" type="ProgressBar" parent="StandingContainer/StandingAndNotification/Standing/Grid/Bars" unique_id=1588275212]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 
-[node name="Stats" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid"]
+[node name="Stats" type="VBoxContainer" parent="StandingContainer/StandingAndNotification/Standing/Grid" unique_id=1821973867]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 3
 script = ExtResource("6_c16ls")
 
-[node name="HappinessPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats"]
+[node name="HappinessPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats" unique_id=602530586]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("8_c1pb6")
 text = "00"
 
-[node name="RespectPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats"]
+[node name="RespectPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats" unique_id=1220562320]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("8_c1pb6")
 text = "00"
 
-[node name="RelationshipPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats"]
+[node name="RelationshipPoint" type="Label" parent="StandingContainer/StandingAndNotification/Standing/Grid/Stats" unique_id=1866325486]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("8_c1pb6")
 text = "00"
 
-[node name="MoneyContainer" type="PanelContainer" parent="StandingContainer/StandingAndNotification"]
+[node name="MoneyContainer" type="PanelContainer" parent="StandingContainer/StandingAndNotification" unique_id=985957795]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StandingContainer/StandingAndNotification/MoneyContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="StandingContainer/StandingAndNotification/MoneyContainer" unique_id=1019569814]
 layout_mode = 2
 theme = ExtResource("9_k6f3i")
 
-[node name="MoneyLabel" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer"]
+[node name="MoneyLabel" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer" unique_id=1343464368]
 layout_mode = 2
 text = "Your money: "
 
-[node name="MoneyAmount" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer"]
+[node name="MoneyAmount" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer" unique_id=2083845938]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 text = "$1200"
 
-[node name="MoneyPoint" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer"]
+[node name="MoneyPoint" type="Label" parent="StandingContainer/StandingAndNotification/MoneyContainer/HBoxContainer" unique_id=1756246767]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+10"
 
-[node name="NotificationContainer" type="PanelContainer" parent="StandingContainer"]
+[node name="NotificationContainer" type="PanelContainer" parent="StandingContainer" unique_id=137330455]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 theme = ExtResource("8_7nt27")
 
-[node name="Margin" type="PanelContainer" parent="StandingContainer/NotificationContainer"]
+[node name="Margin" type="PanelContainer" parent="StandingContainer/NotificationContainer" unique_id=1593996643]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="NotificationLabel" type="Label" parent="StandingContainer/NotificationContainer/Margin"]
+[node name="NotificationLabel" type="Label" parent="StandingContainer/NotificationContainer/Margin" unique_id=1857571411]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -237,70 +237,75 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="DialogContainer" type="PanelContainer" parent="."]
+[node name="DialogContainer" type="PanelContainer" parent="." unique_id=428848056]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_bottom = 204.0
+offset_top = -77.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("8_bcnxi")
 
-[node name="Dialog" type="PanelContainer" parent="DialogContainer"]
+[node name="Dialog" type="PanelContainer" parent="DialogContainer" unique_id=1376524289]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("8_01n6w")
 script = ExtResource("4_pu3yx")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogContainer/Dialog"]
+[node name="MarginContainer" type="MarginContainer" parent="DialogContainer/Dialog" unique_id=1882562308]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 270
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 270
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="NPCContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="DialogContainer/Dialog/MarginContainer" unique_id=1554675673]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 150
+columns = 2
+
+[node name="NPCContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer" unique_id=851114151]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
 
-[node name="PanelContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer" unique_id=987624792]
 custom_minimum_size = Vector2(280, 75)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("13_58gk3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer" unique_id=895411117]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Text" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer"]
+[node name="Text" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer" unique_id=776192297]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="NPCLabel" type="Label" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Text"]
+[node name="NPCLabel" type="Label" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer/Text" unique_id=1834518116]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("11_mngbo")
 text = "Can I borrow a $1000?"
 autowrap_mode = 2
 
-[node name="Choices" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer"]
+[node name="Choices" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer" unique_id=243871985]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Grid" type="GridContainer" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices"]
+[node name="Grid" type="GridContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer/Choices" unique_id=885717685]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -308,7 +313,7 @@ mouse_filter = 2
 theme_override_constants/h_separation = 20
 columns = 2
 
-[node name="YesButton" type="Button" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid"]
+[node name="YesButton" type="Button" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid" unique_id=1166676989]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 40)
 layout_mode = 2
@@ -316,7 +321,7 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("10_mngbo")
 text = "Yes"
 
-[node name="NoButton" type="Button" parent="DialogContainer/Dialog/MarginContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid"]
+[node name="NoButton" type="Button" parent="DialogContainer/Dialog/MarginContainer/GridContainer/NPCContainer/PanelContainer/VBoxContainer/Choices/Grid" unique_id=708186487]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -324,25 +329,25 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("11_4w45t")
 text = "No"
 
-[node name="PlayerContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer"]
+[node name="PlayerContainer" type="PanelContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer" unique_id=1376733336]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme = ExtResource("11_r6p65")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogContainer/Dialog/MarginContainer/PlayerContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/PlayerContainer" unique_id=483273087]
 custom_minimum_size = Vector2(280, 75)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Margin" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/PlayerContainer/VBoxContainer"]
+[node name="Margin" type="MarginContainer" parent="DialogContainer/Dialog/MarginContainer/GridContainer/PlayerContainer/VBoxContainer" unique_id=566281865]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="PlayerLabel" type="Label" parent="DialogContainer/Dialog/MarginContainer/PlayerContainer/VBoxContainer/Margin"]
+[node name="PlayerLabel" type="Label" parent="DialogContainer/Dialog/MarginContainer/GridContainer/PlayerContainer/VBoxContainer/Margin" unique_id=1639768514]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("11_mngbo")
@@ -352,8 +357,9 @@ horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="GameOver" type="PanelContainer" parent="."]
+[node name="GameOver" type="PanelContainer" parent="." unique_id=795451913]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -363,12 +369,12 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("10_adb74")
 
-[node name="Image" type="Panel" parent="GameOver"]
+[node name="Image" type="Panel" parent="GameOver" unique_id=415426208]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_adb74")
 
-[node name="PanelContainer" type="PanelContainer" parent="GameOver/Image"]
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/Image" unique_id=1392078271]
 custom_minimum_size = Vector2(850, 550)
 layout_mode = 1
 anchors_preset = 7
@@ -384,28 +390,28 @@ grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_58gk3")
 
-[node name="GameOverImage" type="TextureRect" parent="GameOver/Image/PanelContainer"]
+[node name="GameOverImage" type="TextureRect" parent="GameOver/Image/PanelContainer" unique_id=1136673354]
 layout_mode = 2
 texture = ExtResource("19_to7gp")
 expand_mode = 2
 
-[node name="TextContainer" type="PanelContainer" parent="GameOver"]
+[node name="TextContainer" type="PanelContainer" parent="GameOver" unique_id=155060291]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4w45t")
 
-[node name="PanelContainer" type="PanelContainer" parent="GameOver/TextContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/TextContainer" unique_id=1691340296]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 theme = ExtResource("8_7nt27")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/TextContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/TextContainer/PanelContainer" unique_id=835298247]
 layout_mode = 2
 
-[node name="GameOver" type="Label" parent="GameOver/TextContainer/PanelContainer/VBoxContainer"]
+[node name="GameOver" type="Label" parent="GameOver/TextContainer/PanelContainer/VBoxContainer" unique_id=1177824753]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -415,13 +421,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PanelContainer" type="Panel" parent="GameOver/TextContainer/PanelContainer/VBoxContainer"]
+[node name="PanelContainer" type="Panel" parent="GameOver/TextContainer/PanelContainer/VBoxContainer" unique_id=646457895]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="TryAgainGame" type="Button" parent="GameOver/TextContainer/PanelContainer/VBoxContainer/PanelContainer"]
+[node name="TryAgainGame" type="Button" parent="GameOver/TextContainer/PanelContainer/VBoxContainer/PanelContainer" unique_id=1770916122]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -439,7 +445,7 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("5_r6p65")
 text = "Try again"
 
-[node name="Player" type="Panel" parent="."]
+[node name="Player" type="Panel" parent="." unique_id=1299719844]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -450,7 +456,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Player"]
+[node name="PanelContainer" type="PanelContainer" parent="Player" unique_id=1052558968]
 clip_contents = true
 custom_minimum_size = Vector2(350, 500)
 layout_mode = 1
@@ -466,14 +472,14 @@ grow_vertical = 0
 mouse_filter = 2
 theme = ExtResource("14_si52b")
 
-[node name="PlayerMood" type="Sprite2D" parent="Player/PanelContainer"]
+[node name="PlayerMood" type="Sprite2D" parent="Player/PanelContainer" unique_id=2114452769]
 unique_name_in_owner = true
 position = Vector2(218.00003, 281.00003)
 scale = Vector2(0.36390004, 0.36390004)
 texture = ExtResource("15_si52b")
 script = ExtResource("17_7nt27")
 
-[node name="PlayerName" type="Label" parent="Player"]
+[node name="PlayerName" type="Label" parent="Player" unique_id=1882424013]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -489,10 +495,10 @@ grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0.07450981, 0.07450981, 0.07450981, 0.78039217)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Player"
+text = "You"
 vertical_alignment = 1
 
-[node name="NPC" type="Panel" parent="."]
+[node name="NPC" type="Panel" parent="." unique_id=2052281180]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -500,8 +506,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="NPC"]
-clip_contents = true
+[node name="PanelContainer" type="PanelContainer" parent="NPC" unique_id=950357706]
 custom_minimum_size = Vector2(350, 500)
 layout_mode = 1
 anchors_preset = 2
@@ -513,14 +518,14 @@ grow_vertical = 0
 mouse_filter = 2
 theme = ExtResource("14_si52b")
 
-[node name="NPCCharacter" type="Sprite2D" parent="NPC/PanelContainer"]
+[node name="NPCCharacter" type="Sprite2D" parent="NPC/PanelContainer" unique_id=1269791454]
 unique_name_in_owner = true
 position = Vector2(126, 282)
 scale = Vector2(0.35390002, 0.35390002)
 texture = ExtResource("16_01n6w")
 script = ExtResource("19_k6f3i")
 
-[node name="NPCName" type="Label" parent="NPC"]
+[node name="NPCName" type="Label" parent="NPC" unique_id=2113233909]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0
