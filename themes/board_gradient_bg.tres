@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ck6nh867pvkwl"]
+[gd_resource type="Theme" format=3 uid="uid://ck6nh867pvkwl"]
 
 [sub_resource type="Gradient" id="Gradient_mxaj0"]
 offsets = PackedFloat32Array(0, 0.49171272, 1)

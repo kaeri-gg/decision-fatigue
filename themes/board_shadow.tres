@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://drk7c84mgk0h3"]
+[gd_resource type="Theme" format=3 uid="uid://drk7c84mgk0h3"]
 
 [sub_resource type="Gradient" id="Gradient_w42lh"]
 colors = PackedColorArray(0.37593353, 0.5160063, 0.8640577, 1, 1, 0.79607844, 1, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b82nsvh67ll66"]
+[gd_scene format=3 uid="uid://b82nsvh67ll66"]
 
 [ext_resource type="Theme" uid="uid://qntu34qpv3p4" path="res://themes/game_menu.tres" id="1_ysvk1"]
 [ext_resource type="Theme" uid="uid://bylq6dkpla5iv" path="res://themes/main_theme.tres" id="2_ysvk1"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mw6r2"]
 
-[node name="GameMenu" type="Control"]
+[node name="GameMenu" type="Control" unique_id=2030556027]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=1102169275]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ysvk1")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1390013168]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,7 +39,7 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("2_ysvk1")
 
-[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+[node name="PanelContainer" type="PanelContainer" parent="Panel" unique_id=1647924773]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,22 +53,22 @@ offset_bottom = 287.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer" unique_id=1410615704]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer/MarginContainer" unique_id=1762234433]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="MarginContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="MarginContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1651656048]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=622782651]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -77,7 +77,7 @@ texture = ExtResource("3_aru3y")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="Game description" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Game description" type="Label" parent="Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1368116544]
 custom_minimum_size = Vector2(550, 100)
 layout_mode = 2
 text = "How long  can you stay happy, kind, and sane while
@@ -87,11 +87,11 @@ text = "How long  can you stay happy, kind, and sane while
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=785757715]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="Panel/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="Panel/PanelContainer/MarginContainer/VBoxContainer" unique_id=811313136]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -99,7 +99,7 @@ mouse_default_cursor_shape = 2
 text = "Start Game"
 script = ExtResource("3_ldg7d")
 
-[node name="AboutContainer" type="PanelContainer" parent="."]
+[node name="AboutContainer" type="PanelContainer" parent="." unique_id=1112056475]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -114,7 +114,7 @@ grow_vertical = 0
 theme = ExtResource("4_mw6r2")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mw6r2")
 
-[node name="About the game" type="Label" parent="AboutContainer"]
+[node name="About the game" type="Label" parent="AboutContainer" unique_id=408719526]
 layout_mode = 2
 text = "https://kaeri-gg.github.io/"
 horizontal_alignment = 1
